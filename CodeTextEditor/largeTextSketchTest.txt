@@ -1,0 +1,1142 @@
+/***************************************************
+  This is an example sketch for the Adafruit 2.2" SPI display.
+  This library works with the Adafruit 2.2" TFT Breakout w/SD card
+  ----> http://www.adafruit.com/products/1480
+ 
+  Check out the links above for our tutorials and wiring diagrams
+  These displays use SPI to communicate, 4 or 5 pins are required to
+  interface (RST is optional)
+  Adafruit invests time and resources providing this open source code,
+  please support Adafruit and open-source hardware by purchasing
+  products from Adafruit!
+
+  Written by Limor Fried/Ladyada for Adafruit Industries.
+  MIT license, all text above must be included in any redistribution
+ ****************************************************/{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}
+ 
+#include {
+}"SPI.h"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}
+#include {
+}"Adafruit_GFX.h"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}
+#include {
+}"Adafruit_ILI9340.h"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}
+
+#{
+}if{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} defined(__SAM3X8E__)
+    #undef __FlashStringHelper::F(string_literal)
+    #define F(string_literal) string_literal
+#endif
+
+{
+}// These are the pins used for the UNO
+// for Due/Mega/Leonardo use the hardware SPI pins (which are different)
+{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}#define _sclk 13
+#define _miso 12
+#define _mosi 11
+#define _cs 10
+#define _dc 9
+#define _rst 8
+
+{
+}// Using software SPI is really not suggested, its incredibly slow
+//Adafruit_ILI9340 tft = Adafruit_ILI9340(_cs, _dc, _mosi, _sclk, _rst, _miso);
+// Use hardware SPI
+{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}Adafruit_ILI9340 tft = Adafruit_ILI9340(_cs, _dc, _rst);
+
+{
+}void{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}setup{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}() {
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}begin{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(9600);
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"Adafruit 2.2\" SPI TFT Test!"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}); 
+ 
+  tft.{
+}begin{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Benchmark                Time (microseconds)"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Screen fill              "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testFillScreen());
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Text                     "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testText());
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(3000);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Lines                    "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testLines(ILI9340_CYAN));
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Horiz/Vert Lines         "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testFastLines(ILI9340_RED, ILI9340_BLUE));
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Rectangles (outline)     "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testRects(ILI9340_GREEN));
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Rectangles (filled)      "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testFilledRects(ILI9340_YELLOW, ILI9340_MAGENTA));
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Circles (filled)         "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testFilledCircles(10, ILI9340_MAGENTA));
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Circles (outline)        "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testCircles(10, ILI9340_WHITE));
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Triangles (outline)      "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testTriangles());
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Triangles (filled)       "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testFilledTriangles());
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Rounded rects (outline)  "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testRoundRects());
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}print{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Rounded rects (filled)   "{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(testFilledRoundRects());
+  {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(500);
+
+  {
+}Serial{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(F({
+}"Done!"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+}));
+}
+
+{
+}void{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}loop{
+    NSColor = "UIDeviceRGBColorSpace 0 0.5 0.5 1";
+}({
+}void{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}) {
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}({
+}uint8_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} rotation=0; rotation<4; rotation++) {
+    tft.setRotation(rotation);
+    testText();
+    {
+}delay{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(2000);
+  }
+}
+
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testFillScreen() {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  tft.fillScreen(ILI9340_BLACK);
+  tft.fillScreen(ILI9340_RED);
+  tft.fillScreen(ILI9340_GREEN);
+  tft.fillScreen(ILI9340_BLUE);
+  tft.fillScreen(ILI9340_BLACK);
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testText() {
+  tft.fillScreen(ILI9340_BLACK);
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  tft.setCursor(0, 0);
+  tft.setTextColor(ILI9340_WHITE);  tft.setTextSize(1);
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"Hello World!"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  tft.setTextColor(ILI9340_YELLOW); tft.setTextSize(2);
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(1234.56);
+  tft.setTextColor(ILI9340_RED);    tft.setTextSize(3);
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(0xDEADBEEF, {
+}HEX{
+    NSColor = "UIDeviceRGBColorSpace 1 0 0 1";
+});
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  tft.setTextColor(ILI9340_GREEN);
+  tft.setTextSize(5);
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"Groop"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  tft.setTextSize(2);
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"I implore thee,"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  tft.setTextSize(1);
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"my foonting turlingdromes."{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"And hooptiously drangle me"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"with crinkly bindlewurdles,"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"Or I will rend thee"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"in the gobberwarts"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"with my blurglecruncheon,"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  tft.{
+}println{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}({
+}"see if I don't!"{
+    NSColor = "UIDeviceRGBColorSpace 0 0.6 0.6 1";
+});
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testLines({
+}uint16_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} color) {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start, t;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}           x1, y1, x2, y2,
+                w = tft.width(),
+                h = tft.height();
+
+  tft.fillScreen(ILI9340_BLACK);
+
+  x1 = y1 = 0;
+  y2    = h - 1;
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(x2=0; x2<w; x2+=6) tft.drawLine(x1, y1, x2, y2, color);
+  x2    = w - 1;
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(y2=0; y2<h; y2+=6) tft.drawLine(x1, y1, x2, y2, color);
+  t     = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start; {
+}// fillScreen doesn't count against timing
+{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}
+  tft.fillScreen(ILI9340_BLACK);
+
+  x1    = w - 1;
+  y1    = 0;
+  y2    = h - 1;
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(x2=0; x2<w; x2+=6) tft.drawLine(x1, y1, x2, y2, color);
+  x2    = 0;
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(y2=0; y2<h; y2+=6) tft.drawLine(x1, y1, x2, y2, color);
+  t    += {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+
+  tft.fillScreen(ILI9340_BLACK);
+
+  x1    = 0;
+  y1    = h - 1;
+  y2    = 0;
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(x2=0; x2<w; x2+=6) tft.drawLine(x1, y1, x2, y2, color);
+  x2    = w - 1;
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(y2=0; y2<h; y2+=6) tft.drawLine(x1, y1, x2, y2, color);
+  t    += {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+
+  tft.fillScreen(ILI9340_BLACK);
+
+  x1    = w - 1;
+  y1    = h - 1;
+  y2    = 0;
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(x2=0; x2<w; x2+=6) tft.drawLine(x1, y1, x2, y2, color);
+  x2    = 0;
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(y2=0; y2<h; y2+=6) tft.drawLine(x1, y1, x2, y2, color);
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testFastLines({
+}uint16_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} color1, {
+}uint16_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} color2) {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}           x, y, w = tft.width(), h = tft.height();
+
+  tft.fillScreen(ILI9340_BLACK);
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(y=0; y<h; y+=5) tft.drawFastHLine(0, y, w, color1);
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(x=0; x<w; x+=5) tft.drawFastVLine(x, 0, h, color2);
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testRects({
+}uint16_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} color) {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}           n, i, i2,
+                cx = tft.width()  / 2,
+                cy = tft.height() / 2;
+
+  tft.fillScreen(ILI9340_BLACK);
+  n     = {
+}min{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(tft.width(), tft.height());
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(i=2; i<n; i+=6) {
+    i2 = i / 2;
+    tft.drawRect(cx-i2, cy-i2, i, i, color);
+  }
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testFilledRects({
+}uint16_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} color1, {
+}uint16_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} color2) {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start, t = 0;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}           n, i, i2,
+                cx = tft.width()  / 2 - 1,
+                cy = tft.height() / 2 - 1;
+
+  tft.fillScreen(ILI9340_BLACK);
+  n = {
+}min{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(tft.width(), tft.height());
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(i=n; i>0; i-=6) {
+    i2    = i / 2;
+    start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+    tft.fillRect(cx-i2, cy-i2, i, i, color1);
+    t    += {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+    {
+}// Outlines are not included in timing results
+{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}    tft.drawRect(cx-i2, cy-i2, i, i, color2);
+  }
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} t;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testFilledCircles({
+}uint8_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} radius, {
+}uint16_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} color) {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} x, y, w = tft.width(), h = tft.height(), r2 = radius * 2;
+
+  tft.fillScreen(ILI9340_BLACK);
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(x=radius; x<w; x+=r2) {
+    {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(y=radius; y<h; y+=r2) {
+      tft.fillCircle(x, y, radius, color);
+    }
+  }
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testCircles({
+}uint8_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} radius, {
+}uint16_t{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} color) {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}           x, y, r2 = radius * 2,
+                w = tft.width()  + radius,
+                h = tft.height() + radius;
+
+  {
+}// Screen is not cleared for this one -- this is
+{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}  {
+}// intentional and does not affect the reported time.
+{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(x=0; x<w; x+=r2) {
+    {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(y=0; y<h; y+=r2) {
+      tft.drawCircle(x, y, radius, color);
+    }
+  }
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testTriangles() {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}           n, i, cx = tft.width()  / 2 - 1,
+                      cy = tft.height() / 2 - 1;
+
+  tft.fillScreen(ILI9340_BLACK);
+  n     = {
+}min{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(cx, cy);
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(i=0; i<n; i+=5) {
+    tft.drawTriangle(
+      cx    , cy - i, {
+}// peak
+{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}      cx - i, cy + i, {
+}// bottom left
+{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}      cx + i, cy + i, {
+}// bottom right
+{
+    NSColor = "UIDeviceRGBColorSpace 0.3 0.3 0.3 1";
+}      tft.Color565(0, 0, i));
+  }
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testFilledTriangles() {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start, t = 0;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}           i, cx = tft.width()  / 2 - 1,
+                   cy = tft.height() / 2 - 1;
+
+  tft.fillScreen(ILI9340_BLACK);
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(i={
+}min{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(cx,cy); i>10; i-=5) {
+    start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+    tft.fillTriangle(cx, cy - i, cx - i, cy + i, cx + i, cy + i,
+      tft.Color565(0, i, i));
+    t += {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+    tft.drawTriangle(cx, cy - i, cx - i, cy + i, cx + i, cy + i,
+      tft.Color565(i, i, 0));
+  }
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} t;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testRoundRects() {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}           w, i, i2,
+                cx = tft.width()  / 2 - 1,
+                cy = tft.height() / 2 - 1;
+
+  tft.fillScreen(ILI9340_BLACK);
+  w     = {
+}min{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(tft.width(), tft.height());
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(); t  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(i=0; i<w; i+=6) {
+    i2 = i / 2;
+    tft.drawRoundRect(cx-i2, cy-i2, i, i, i/8, tft.Color565(i, 0, 0));
+  }
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}
+
+{
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} testFilledRoundRects() {
+  {
+}unsigned{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}long{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+} start;
+  {
+}int{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}           i, i2,
+                cx = tft.width()  / 2 - 1,
+                cy = tft.height() / 2 - 1;
+
+  tft.fillScreen(ILI9340_BLACK);
+  start = {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}();
+  {
+}for{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+}(i={
+}min{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}(tft.width(), tft.height()); i>20; i-=6) {
+    i2 = i / 2;
+    tft.fillRoundRect(cx-i2, cy-i2, i, i, i/8, tft.Color565(0, i, 0));
+  }
+
+  {
+}return{
+    NSColor = "UIDeviceRGBColorSpace 0.2 0.4 0.4 1";
+} {
+}micros{
+    NSColor = "UIDeviceRGBColorSpace 0 0 1 1";
+}() - start;
+}{
+}

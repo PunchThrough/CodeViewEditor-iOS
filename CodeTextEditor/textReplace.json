@@ -1,0 +1,17 @@
+ [
+  {
+  "text":"[",
+  "value":"[]",
+  "offset":1
+  },
+  {
+  "text":"{",
+  "value":"{}",
+  "offset":1
+  },
+  {
+  "text":"(",
+  "value":"()",
+  "offset":1
+  }
+]

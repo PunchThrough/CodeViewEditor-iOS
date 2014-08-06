@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3A2E9362-3250-438B-B292-A18AA28DEFA9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RichTextEditor</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0D9A775464458FAEE5941F5953C3E5F4C1E7F6CD</key>
+		<string>https://github.com/PunchThrough/iOS-Rich-Text-Editor.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RichTextEditor.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0D9A775464458FAEE5941F5953C3E5F4C1E7F6CD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/PunchThrough/iOS-Rich-Text-Editor.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0D9A775464458FAEE5941F5953C3E5F4C1E7F6CD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0D9A775464458FAEE5941F5953C3E5F4C1E7F6CD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-Rich-Text-Editor</string>
+		</dict>
+	</array>
+</dict>
+</plist>

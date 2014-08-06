@@ -1,0 +1,5 @@
+HIGH	LITERAL1	Constants
+LSBFIRST	LITERAL2	ShiftOut
+boolean	KEYWORD1	BooleanVariables
+byte	KEYWORD2	byte_
+blah		KEYWORD3
