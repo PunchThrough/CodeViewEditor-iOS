@@ -13,25 +13,6 @@
 		1583893B1735A5D7006DE713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389121735A5D7006DE713 /* UIKit.framework */; };
 		1583893C1735A5D7006DE713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389141735A5D7006DE713 /* Foundation.framework */; };
 		1583895A1735D7F4006DE713 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389591735D7F4006DE713 /* CoreText.framework */; };
-		96DD53441992E2C40089E13D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD532B1992E2C40089E13D /* AppDelegate.m */; };
-		96DD53461992E2C40089E13D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DD532E1992E2C40089E13D /* Default-568h@2x.png */; };
-		96DD53471992E2C40089E13D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DD532F1992E2C40089E13D /* Default.png */; };
-		96DD53481992E2C40089E13D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53301992E2C40089E13D /* Default@2x.png */; };
-		96DD53491992E2C40089E13D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53311992E2C40089E13D /* InfoPlist.strings */; };
-		96DD534A1992E2C40089E13D /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53331992E2C40089E13D /* MainStoryboard_iPad.storyboard */; };
-		96DD534B1992E2C40089E13D /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53351992E2C40089E13D /* MainStoryboard_iPhone.storyboard */; };
-		96DD534C1992E2C40089E13D /* examplesketch.ino in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53371992E2C40089E13D /* examplesketch.ino */; };
-		96DD534D1992E2C40089E13D /* keywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53381992E2C40089E13D /* keywords.txt */; };
-		96DD534E1992E2C40089E13D /* largeTestSketch.ino in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53391992E2C40089E13D /* largeTestSketch.ino */; };
-		96DD534F1992E2C40089E13D /* largeTextSketchTest.txt in Resources */ = {isa = PBXBuildFile; fileRef = 96DD533A1992E2C40089E13D /* largeTextSketchTest.txt */; };
-		96DD53501992E2C40089E13D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD533B1992E2C40089E13D /* main.m */; };
-		96DD53511992E2C40089E13D /* menu~ipad.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD533C1992E2C40089E13D /* menu~ipad.json */; };
-		96DD53521992E2C40089E13D /* menu~iphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD533D1992E2C40089E13D /* menu~iphone.json */; };
-		96DD53531992E2C40089E13D /* testTextSkip.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD533E1992E2C40089E13D /* testTextSkip.json */; };
-		96DD53541992E2C40089E13D /* textColors.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD533F1992E2C40089E13D /* textColors.json */; };
-		96DD53551992E2C40089E13D /* textReplace.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53401992E2C40089E13D /* textReplace.json */; };
-		96DD53561992E2C40089E13D /* textSkip.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53411992E2C40089E13D /* textSkip.json */; };
-		96DD53571992E2C40089E13D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53431992E2C40089E13D /* ViewController.m */; };
 		96DD53621992E2CC0089E13D /* CodeTextEditorTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53591992E2CC0089E13D /* CodeTextEditorTests-Info.plist */; };
 		96DD53631992E2CC0089E13D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96DD535A1992E2CC0089E13D /* InfoPlist.strings */; };
 		96DD53651992E2CC0089E13D /* testKeywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 96DD535E1992E2CC0089E13D /* testKeywords.txt */; };
@@ -40,6 +21,41 @@
 		96DD53681992E2CC0089E13D /* testTextReplace.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53611992E2CC0089E13D /* testTextReplace.json */; };
 		96DD536A1992E34A0089E13D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD53691992E34A0089E13D /* SenTestingKit.framework */; };
 		96DD536B1992E3600089E13D /* CodeTextEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD535D1992E2CC0089E13D /* CodeTextEditorTests.m */; };
+		96DD53861992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */; };
+		96DD53871992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */; };
+		96DD53881992E7B60089E13D /* MyNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53731992E7B60089E13D /* MyNavViewController.m */; };
+		96DD53891992E7B60089E13D /* MyNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53731992E7B60089E13D /* MyNavViewController.m */; };
+		96DD538A1992E7B60089E13D /* MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53751992E7B60089E13D /* MyRichTextEditor.m */; };
+		96DD538B1992E7B60089E13D /* MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53751992E7B60089E13D /* MyRichTextEditor.m */; };
+		96DD538C1992E7B60089E13D /* MyRichTextEditorCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53771992E7B60089E13D /* MyRichTextEditorCategoryViewController.m */; };
+		96DD538D1992E7B60089E13D /* MyRichTextEditorCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53771992E7B60089E13D /* MyRichTextEditorCategoryViewController.m */; };
+		96DD538E1992E7B60089E13D /* MyRichTextEditorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53791992E7B60089E13D /* MyRichTextEditorHelper.m */; };
+		96DD538F1992E7B60089E13D /* MyRichTextEditorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53791992E7B60089E13D /* MyRichTextEditorHelper.m */; };
+		96DD53901992E7B60089E13D /* MyRichTextEditorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537C1992E7B60089E13D /* MyRichTextEditorParser.m */; };
+		96DD53911992E7B60089E13D /* MyRichTextEditorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537C1992E7B60089E13D /* MyRichTextEditorParser.m */; };
+		96DD53921992E7B60089E13D /* MyRichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537E1992E7B60089E13D /* MyRichTextEditorToggleButton.m */; };
+		96DD53931992E7B60089E13D /* MyRichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537E1992E7B60089E13D /* MyRichTextEditorToggleButton.m */; };
+		96DD53941992E7B60089E13D /* MyRichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53801992E7B60089E13D /* MyRichTextEditorToolbar.m */; };
+		96DD53951992E7B60089E13D /* MyRichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53801992E7B60089E13D /* MyRichTextEditorToolbar.m */; };
+		96DD53961992E7B60089E13D /* LineNumberLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53831992E7B60089E13D /* LineNumberLayoutManager.m */; };
+		96DD53971992E7B60089E13D /* LineNumberLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53831992E7B60089E13D /* LineNumberLayoutManager.m */; };
+		96DD53981992E7B60089E13D /* LineNumberTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53851992E7B60089E13D /* LineNumberTextView.m */; };
+		96DD53991992E7B60089E13D /* LineNumberTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53851992E7B60089E13D /* LineNumberTextView.m */; };
+		96DD539E1992E9C90089E13D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD539D1992E9C90089E13D /* AppDelegate.m */; };
+		96DD53A51992E9F40089E13D /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53A11992E9F40089E13D /* MainStoryboard_iPad.storyboard */; };
+		96DD53A61992E9F40089E13D /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53A31992E9F40089E13D /* MainStoryboard_iPhone.storyboard */; };
+		96DD53A81992E9FB0089E13D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53A71992E9FB0089E13D /* main.m */; };
+		96DD53B41992EA030089E13D /* examplesketch.ino in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53AA1992EA030089E13D /* examplesketch.ino */; };
+		96DD53B51992EA030089E13D /* keywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53AB1992EA030089E13D /* keywords.txt */; };
+		96DD53B61992EA030089E13D /* largeTestSketch.ino in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53AC1992EA030089E13D /* largeTestSketch.ino */; };
+		96DD53B71992EA030089E13D /* largeTextSketchTest.txt in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53AD1992EA030089E13D /* largeTextSketchTest.txt */; };
+		96DD53B81992EA030089E13D /* menu~ipad.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53AE1992EA030089E13D /* menu~ipad.json */; };
+		96DD53B91992EA030089E13D /* menu~iphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53AF1992EA030089E13D /* menu~iphone.json */; };
+		96DD53BA1992EA030089E13D /* testTextSkip.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53B01992EA030089E13D /* testTextSkip.json */; };
+		96DD53BB1992EA030089E13D /* textColors.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53B11992EA030089E13D /* textColors.json */; };
+		96DD53BC1992EA030089E13D /* textReplace.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53B21992EA030089E13D /* textReplace.json */; };
+		96DD53BD1992EA030089E13D /* textSkip.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53B31992EA030089E13D /* textSkip.json */; };
+		96DD53C01992EA090089E13D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53BF1992EA090089E13D /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,29 +75,6 @@
 		158389161735A5D7006DE713 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		158389381735A5D7006DE713 /* CodeTextEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeTextEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		158389591735D7F4006DE713 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		96DD532A1992E2C40089E13D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		96DD532B1992E2C40089E13D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		96DD532C1992E2C40089E13D /* CodeTextEditor-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CodeTextEditor-Info.plist"; sourceTree = "<group>"; };
-		96DD532D1992E2C40089E13D /* CodeTextEditor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CodeTextEditor-Prefix.pch"; sourceTree = "<group>"; };
-		96DD532E1992E2C40089E13D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		96DD532F1992E2C40089E13D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		96DD53301992E2C40089E13D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		96DD53321992E2C40089E13D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		96DD53341992E2C40089E13D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		96DD53361992E2C40089E13D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		96DD53371992E2C40089E13D /* examplesketch.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = examplesketch.ino; sourceTree = "<group>"; };
-		96DD53381992E2C40089E13D /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
-		96DD53391992E2C40089E13D /* largeTestSketch.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = largeTestSketch.ino; sourceTree = "<group>"; };
-		96DD533A1992E2C40089E13D /* largeTextSketchTest.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = largeTextSketchTest.txt; sourceTree = "<group>"; };
-		96DD533B1992E2C40089E13D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		96DD533C1992E2C40089E13D /* menu~ipad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "menu~ipad.json"; sourceTree = "<group>"; };
-		96DD533D1992E2C40089E13D /* menu~iphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "menu~iphone.json"; sourceTree = "<group>"; };
-		96DD533E1992E2C40089E13D /* testTextSkip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testTextSkip.json; sourceTree = "<group>"; };
-		96DD533F1992E2C40089E13D /* textColors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = textColors.json; sourceTree = "<group>"; };
-		96DD53401992E2C40089E13D /* textReplace.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = textReplace.json; sourceTree = "<group>"; };
-		96DD53411992E2C40089E13D /* textSkip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = textSkip.json; sourceTree = "<group>"; };
-		96DD53421992E2C40089E13D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		96DD53431992E2C40089E13D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		96DD53591992E2CC0089E13D /* CodeTextEditorTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CodeTextEditorTests-Info.plist"; sourceTree = "<group>"; };
 		96DD535B1992E2CC0089E13D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		96DD535C1992E2CC0089E13D /* CodeTextEditorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeTextEditorTests.h; sourceTree = "<group>"; };
@@ -91,6 +84,48 @@
 		96DD53601992E2CC0089E13D /* testTextColors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testTextColors.json; sourceTree = "<group>"; };
 		96DD53611992E2CC0089E13D /* testTextReplace.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testTextReplace.json; sourceTree = "<group>"; };
 		96DD53691992E34A0089E13D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		96DD536E1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+MyRichTextEditor.h"; sourceTree = "<group>"; };
+		96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+MyRichTextEditor.m"; sourceTree = "<group>"; };
+		96DD53701992E7B60089E13D /* RichTextEditor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RichTextEditor+Protected.h"; sourceTree = "<group>"; };
+		96DD53711992E7B60089E13D /* RichTextEditorToolbar+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RichTextEditorToolbar+Protected.h"; sourceTree = "<group>"; };
+		96DD53721992E7B60089E13D /* MyNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavViewController.h; sourceTree = "<group>"; };
+		96DD53731992E7B60089E13D /* MyNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavViewController.m; sourceTree = "<group>"; };
+		96DD53751992E7B60089E13D /* MyRichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditor.m; sourceTree = "<group>"; };
+		96DD53761992E7B60089E13D /* MyRichTextEditorCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorCategoryViewController.h; sourceTree = "<group>"; };
+		96DD53771992E7B60089E13D /* MyRichTextEditorCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorCategoryViewController.m; sourceTree = "<group>"; };
+		96DD53781992E7B60089E13D /* MyRichTextEditorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorHelper.h; sourceTree = "<group>"; };
+		96DD53791992E7B60089E13D /* MyRichTextEditorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorHelper.m; sourceTree = "<group>"; };
+		96DD537A1992E7B60089E13D /* MyRichTextEditorMacroPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorMacroPicker.h; sourceTree = "<group>"; };
+		96DD537B1992E7B60089E13D /* MyRichTextEditorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorParser.h; sourceTree = "<group>"; };
+		96DD537C1992E7B60089E13D /* MyRichTextEditorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorParser.m; sourceTree = "<group>"; };
+		96DD537D1992E7B60089E13D /* MyRichTextEditorToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorToggleButton.h; sourceTree = "<group>"; };
+		96DD537E1992E7B60089E13D /* MyRichTextEditorToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorToggleButton.m; sourceTree = "<group>"; };
+		96DD537F1992E7B60089E13D /* MyRichTextEditorToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorToolbar.h; sourceTree = "<group>"; };
+		96DD53801992E7B60089E13D /* MyRichTextEditorToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorToolbar.m; sourceTree = "<group>"; };
+		96DD53821992E7B60089E13D /* LineNumberLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineNumberLayoutManager.h; sourceTree = "<group>"; };
+		96DD53831992E7B60089E13D /* LineNumberLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNumberLayoutManager.m; sourceTree = "<group>"; };
+		96DD53841992E7B60089E13D /* LineNumberTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineNumberTextView.h; sourceTree = "<group>"; };
+		96DD53851992E7B60089E13D /* LineNumberTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNumberTextView.m; sourceTree = "<group>"; };
+		96DD539B1992E89E0089E13D /* MyRichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditor.h; sourceTree = "<group>"; };
+		96DD539C1992E9C90089E13D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		96DD539D1992E9C90089E13D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		96DD539F1992E9D00089E13D /* CodeTextEditor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CodeTextEditor-Info.plist"; sourceTree = "<group>"; };
+		96DD53A01992E9D70089E13D /* CodeTextEditor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodeTextEditor-Prefix.pch"; sourceTree = "<group>"; };
+		96DD53A21992E9F40089E13D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		96DD53A41992E9F40089E13D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		96DD53A71992E9FB0089E13D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		96DD53AA1992EA030089E13D /* examplesketch.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = examplesketch.ino; sourceTree = "<group>"; };
+		96DD53AB1992EA030089E13D /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
+		96DD53AC1992EA030089E13D /* largeTestSketch.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = largeTestSketch.ino; sourceTree = "<group>"; };
+		96DD53AD1992EA030089E13D /* largeTextSketchTest.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = largeTextSketchTest.txt; sourceTree = "<group>"; };
+		96DD53AE1992EA030089E13D /* menu~ipad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "menu~ipad.json"; sourceTree = "<group>"; };
+		96DD53AF1992EA030089E13D /* menu~iphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "menu~iphone.json"; sourceTree = "<group>"; };
+		96DD53B01992EA030089E13D /* testTextSkip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testTextSkip.json; sourceTree = "<group>"; };
+		96DD53B11992EA030089E13D /* textColors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = textColors.json; sourceTree = "<group>"; };
+		96DD53B21992EA030089E13D /* textReplace.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = textReplace.json; sourceTree = "<group>"; };
+		96DD53B31992EA030089E13D /* textSkip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = textSkip.json; sourceTree = "<group>"; };
+		96DD53BE1992EA090089E13D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		96DD53BF1992EA090089E13D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +156,18 @@
 		158389031735A5D7006DE713 = {
 			isa = PBXGroup;
 			children = (
+				96DD53BE1992EA090089E13D /* ViewController.h */,
+				96DD53BF1992EA090089E13D /* ViewController.m */,
+				96DD53A91992EA030089E13D /* Resources */,
+				96DD53A71992E9FB0089E13D /* main.m */,
+				96DD53A11992E9F40089E13D /* MainStoryboard_iPad.storyboard */,
+				96DD53A31992E9F40089E13D /* MainStoryboard_iPhone.storyboard */,
+				96DD53A01992E9D70089E13D /* CodeTextEditor-Prefix.pch */,
+				96DD539F1992E9D00089E13D /* CodeTextEditor-Info.plist */,
+				96DD539C1992E9C90089E13D /* AppDelegate.h */,
+				96DD539D1992E9C90089E13D /* AppDelegate.m */,
+				96DD536C1992E7B60089E13D /* Classes */,
 				96DD53581992E2CC0089E13D /* CodeTextEditorTests */,
-				96DD53291992E2C40089E13D /* CodeTextEditor */,
 				158389111735A5D7006DE713 /* Frameworks */,
 				1583890F1735A5D7006DE713 /* Products */,
 			);
@@ -149,36 +194,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		96DD53291992E2C40089E13D /* CodeTextEditor */ = {
-			isa = PBXGroup;
-			children = (
-				96DD532A1992E2C40089E13D /* AppDelegate.h */,
-				96DD532B1992E2C40089E13D /* AppDelegate.m */,
-				96DD532C1992E2C40089E13D /* CodeTextEditor-Info.plist */,
-				96DD532D1992E2C40089E13D /* CodeTextEditor-Prefix.pch */,
-				96DD532E1992E2C40089E13D /* Default-568h@2x.png */,
-				96DD532F1992E2C40089E13D /* Default.png */,
-				96DD53301992E2C40089E13D /* Default@2x.png */,
-				96DD53311992E2C40089E13D /* InfoPlist.strings */,
-				96DD53331992E2C40089E13D /* MainStoryboard_iPad.storyboard */,
-				96DD53351992E2C40089E13D /* MainStoryboard_iPhone.storyboard */,
-				96DD53371992E2C40089E13D /* examplesketch.ino */,
-				96DD53381992E2C40089E13D /* keywords.txt */,
-				96DD53391992E2C40089E13D /* largeTestSketch.ino */,
-				96DD533A1992E2C40089E13D /* largeTextSketchTest.txt */,
-				96DD533B1992E2C40089E13D /* main.m */,
-				96DD533C1992E2C40089E13D /* menu~ipad.json */,
-				96DD533D1992E2C40089E13D /* menu~iphone.json */,
-				96DD533E1992E2C40089E13D /* testTextSkip.json */,
-				96DD533F1992E2C40089E13D /* textColors.json */,
-				96DD53401992E2C40089E13D /* textReplace.json */,
-				96DD53411992E2C40089E13D /* textSkip.json */,
-				96DD53421992E2C40089E13D /* ViewController.h */,
-				96DD53431992E2C40089E13D /* ViewController.m */,
-			);
-			path = CodeTextEditor;
-			sourceTree = "<group>";
-		};
 		96DD53581992E2CC0089E13D /* CodeTextEditorTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +207,77 @@
 				96DD53611992E2CC0089E13D /* testTextReplace.json */,
 			);
 			path = CodeTextEditorTests;
+			sourceTree = "<group>";
+		};
+		96DD536C1992E7B60089E13D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				96DD539A1992E89E0089E13D /* Public */,
+				96DD536D1992E7B60089E13D /* Categories */,
+				96DD53721992E7B60089E13D /* MyNavViewController.h */,
+				96DD53731992E7B60089E13D /* MyNavViewController.m */,
+				96DD53751992E7B60089E13D /* MyRichTextEditor.m */,
+				96DD53761992E7B60089E13D /* MyRichTextEditorCategoryViewController.h */,
+				96DD53771992E7B60089E13D /* MyRichTextEditorCategoryViewController.m */,
+				96DD53781992E7B60089E13D /* MyRichTextEditorHelper.h */,
+				96DD53791992E7B60089E13D /* MyRichTextEditorHelper.m */,
+				96DD537A1992E7B60089E13D /* MyRichTextEditorMacroPicker.h */,
+				96DD537B1992E7B60089E13D /* MyRichTextEditorParser.h */,
+				96DD537C1992E7B60089E13D /* MyRichTextEditorParser.m */,
+				96DD537D1992E7B60089E13D /* MyRichTextEditorToggleButton.h */,
+				96DD537E1992E7B60089E13D /* MyRichTextEditorToggleButton.m */,
+				96DD537F1992E7B60089E13D /* MyRichTextEditorToolbar.h */,
+				96DD53801992E7B60089E13D /* MyRichTextEditorToolbar.m */,
+				96DD53811992E7B60089E13D /* Vendor */,
+			);
+			path = Classes;
+			sourceTree = SOURCE_ROOT;
+		};
+		96DD536D1992E7B60089E13D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				96DD536E1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.h */,
+				96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */,
+				96DD53701992E7B60089E13D /* RichTextEditor+Protected.h */,
+				96DD53711992E7B60089E13D /* RichTextEditorToolbar+Protected.h */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		96DD53811992E7B60089E13D /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				96DD53821992E7B60089E13D /* LineNumberLayoutManager.h */,
+				96DD53831992E7B60089E13D /* LineNumberLayoutManager.m */,
+				96DD53841992E7B60089E13D /* LineNumberTextView.h */,
+				96DD53851992E7B60089E13D /* LineNumberTextView.m */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		96DD539A1992E89E0089E13D /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				96DD539B1992E89E0089E13D /* MyRichTextEditor.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		96DD53A91992EA030089E13D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				96DD53AA1992EA030089E13D /* examplesketch.ino */,
+				96DD53AB1992EA030089E13D /* keywords.txt */,
+				96DD53AC1992EA030089E13D /* largeTestSketch.ino */,
+				96DD53AD1992EA030089E13D /* largeTextSketchTest.txt */,
+				96DD53AE1992EA030089E13D /* menu~ipad.json */,
+				96DD53AF1992EA030089E13D /* menu~iphone.json */,
+				96DD53B01992EA030089E13D /* testTextSkip.json */,
+				96DD53B11992EA030089E13D /* textColors.json */,
+				96DD53B21992EA030089E13D /* textReplace.json */,
+				96DD53B31992EA030089E13D /* textSkip.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,28 +352,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DD534A1992E2C40089E13D /* MainStoryboard_iPad.storyboard in Resources */,
+				96DD53B51992EA030089E13D /* keywords.txt in Resources */,
+				96DD53B81992EA030089E13D /* menu~ipad.json in Resources */,
+				96DD53B61992EA030089E13D /* largeTestSketch.ino in Resources */,
+				96DD53B41992EA030089E13D /* examplesketch.ino in Resources */,
+				96DD53B91992EA030089E13D /* menu~iphone.json in Resources */,
+				96DD53B71992EA030089E13D /* largeTextSketchTest.txt in Resources */,
+				96DD53BA1992EA030089E13D /* testTextSkip.json in Resources */,
+				96DD53BD1992EA030089E13D /* textSkip.json in Resources */,
+				96DD53BC1992EA030089E13D /* textReplace.json in Resources */,
 				96DD53621992E2CC0089E13D /* CodeTextEditorTests-Info.plist in Resources */,
 				96DD53651992E2CC0089E13D /* testKeywords.txt in Resources */,
-				96DD53481992E2C40089E13D /* Default@2x.png in Resources */,
-				96DD534C1992E2C40089E13D /* examplesketch.ino in Resources */,
-				96DD534F1992E2C40089E13D /* largeTextSketchTest.txt in Resources */,
-				96DD534B1992E2C40089E13D /* MainStoryboard_iPhone.storyboard in Resources */,
-				96DD53471992E2C40089E13D /* Default.png in Resources */,
-				96DD53531992E2C40089E13D /* testTextSkip.json in Resources */,
-				96DD53561992E2C40089E13D /* textSkip.json in Resources */,
 				96DD53631992E2CC0089E13D /* InfoPlist.strings in Resources */,
-				96DD53541992E2C40089E13D /* textColors.json in Resources */,
 				96DD53681992E2CC0089E13D /* testTextReplace.json in Resources */,
-				96DD53551992E2C40089E13D /* textReplace.json in Resources */,
-				96DD53461992E2C40089E13D /* Default-568h@2x.png in Resources */,
-				96DD53521992E2C40089E13D /* menu~iphone.json in Resources */,
-				96DD534D1992E2C40089E13D /* keywords.txt in Resources */,
-				96DD534E1992E2C40089E13D /* largeTestSketch.ino in Resources */,
 				96DD53671992E2CC0089E13D /* testTextColors.json in Resources */,
-				96DD53491992E2C40089E13D /* InfoPlist.strings in Resources */,
-				96DD53511992E2C40089E13D /* menu~ipad.json in Resources */,
 				96DD53661992E2CC0089E13D /* testSetupFiles.ino in Resources */,
+				96DD53A61992E9F40089E13D /* MainStoryboard_iPhone.storyboard in Resources */,
+				96DD53BB1992EA030089E13D /* textColors.json in Resources */,
+				96DD53A51992E9F40089E13D /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,9 +403,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DD53571992E2C40089E13D /* ViewController.m in Sources */,
-				96DD53501992E2C40089E13D /* main.m in Sources */,
-				96DD53441992E2C40089E13D /* AppDelegate.m in Sources */,
+				96DD539E1992E9C90089E13D /* AppDelegate.m in Sources */,
+				96DD53881992E7B60089E13D /* MyNavViewController.m in Sources */,
+				96DD538A1992E7B60089E13D /* MyRichTextEditor.m in Sources */,
+				96DD538E1992E7B60089E13D /* MyRichTextEditorHelper.m in Sources */,
+				96DD538C1992E7B60089E13D /* MyRichTextEditorCategoryViewController.m in Sources */,
+				96DD53901992E7B60089E13D /* MyRichTextEditorParser.m in Sources */,
+				96DD53C01992EA090089E13D /* ViewController.m in Sources */,
+				96DD53941992E7B60089E13D /* MyRichTextEditorToolbar.m in Sources */,
+				96DD53861992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */,
+				96DD53961992E7B60089E13D /* LineNumberLayoutManager.m in Sources */,
+				96DD53981992E7B60089E13D /* LineNumberTextView.m in Sources */,
+				96DD53A81992E9FB0089E13D /* main.m in Sources */,
+				96DD53921992E7B60089E13D /* MyRichTextEditorToggleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +423,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DD53971992E7B60089E13D /* LineNumberLayoutManager.m in Sources */,
+				96DD53891992E7B60089E13D /* MyNavViewController.m in Sources */,
+				96DD538D1992E7B60089E13D /* MyRichTextEditorCategoryViewController.m in Sources */,
+				96DD538B1992E7B60089E13D /* MyRichTextEditor.m in Sources */,
+				96DD53951992E7B60089E13D /* MyRichTextEditorToolbar.m in Sources */,
+				96DD53991992E7B60089E13D /* LineNumberTextView.m in Sources */,
+				96DD53911992E7B60089E13D /* MyRichTextEditorParser.m in Sources */,
 				96DD536B1992E3600089E13D /* CodeTextEditorTests.m in Sources */,
+				96DD53871992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */,
+				96DD538F1992E7B60089E13D /* MyRichTextEditorHelper.m in Sources */,
+				96DD53931992E7B60089E13D /* MyRichTextEditorToggleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,36 +448,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		96DD53311992E2C40089E13D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				96DD53321992E2C40089E13D /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		96DD53331992E2C40089E13D /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				96DD53341992E2C40089E13D /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		96DD53351992E2C40089E13D /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				96DD53361992E2C40089E13D /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
 		96DD535A1992E2CC0089E13D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				96DD535B1992E2CC0089E13D /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		96DD53A11992E9F40089E13D /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96DD53A21992E9F40089E13D /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		96DD53A31992E9F40089E13D /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96DD53A41992E9F40089E13D /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
