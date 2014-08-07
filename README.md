@@ -49,82 +49,81 @@ Next to the Macros is a ; which is a quick way to select a ;
 }]
 ```
 
-More examples of the menu configuration are in the Example Project described at the bottom of the [Getting Started Guide](https://github.com/PunchThrough/CodeViewEditor/wiki).
+More examples of the menu configuration as well as initialization and API usage are in the Example Project described at the bottom of the [Getting Started Guide](https://github.com/PunchThrough/CodeViewEditor/wiki).
 
-Custom Font Family Selection
+Initialization
 -------------------------
-Font family selection can be customized by implementing the following data source method
+Initialization is done by creating a PTDCodeViewEditor object and passing it config files. The syntax of the config files are described in the following sections. 
 
 ```objective-c
-- (NSArray *)fontFamilySelectionForRichTextEditor:(RichTextEditor *)richTextEditor
+ NSString *textReplaceFile = @"textReplace";
+ NSString *keywordsFile = @"keywords";
+ NSString *textColorsFile = @"textColors";
+ NSString *textSkipFile = @"textSkip";
+ PTDCodeViewEditor *codeTextEditor = [[PTDCodeViewEditor alloc] initWithLineNumbers:YES textReplaceFile:textReplaceFile keywordsFile:@"keywords" textColorsFile:textColorsFile textSkipFile:textSkipFile];
+```
+
+Text Replacement
+-------------------------
+The text replacment file is used to replace entered characters. The example below replaced a typed `[` with `[]` with the cursor offset by one. The text replacement is assumed to be JSON and end with `.json`.
+
+```javascript
+[{
+  "text":"[",
+  "value":"[]",
+  "offset":1
+}]
+```
+
+Keywords
+-------------------------
+The keywords file is a tab delimted file where the first token is the keyword and the second value is the keyword attribute. If the keyword attribute is empty, a the third tab delimited value is checked. In the example below, `boolean`, `break` and `HIGH` are checked and their attributes matched to the Text Colors file. The keywords file is assumed to be a text file and end with `.txt`.
+
+```javascript
 {
-	// pas an array of Strings
-  // Can be taken from [UIFont familyNames]
-	return @[@"Helvetica", @"Arial", @"Marion", @"Papyrus"];
+boolean	KEYWORD1
+break	KEYWORD2
+HIGH	LITERAL1
 }
 ```
 
-Presentation Style
+Text Colors
 -------------------------
-You can switch between popover, or modal (presenting font-picker, font-size-picker, color-picker dialogs) by implementing the following data source method
-```objective-c
-- (RichTextEditorToolbarPresentationStyle)presentarionStyleForRichTextEditor:(RichTextEditor *)richTextEditor
+The text colors file is used to syntax highlight text. In the example below, the keyword with key `KEYWORD1` will be highlighted as RGB (0.2,0.2,0.2). Comments are defined as anything between `//` and `/**/`, strings anything between `''` or `""`, invalid strings as unterminated strings, and numbers as any base 10, hex or binary number. The text color is assumed to be JSON and end with `.json`.
+
+```javascript
 {
-  // RichTextEditorToolbarPresentationStyleModal Or RichTextEditorToolbarPresentationStylePopover
-	return RichTextEditorToolbarPresentationStyleModal;
+    "keywords":
+    [{ "KEYWORD1":[0.2,0.4,0.4]}],
+    "comments":[0.3,0.3,0.3],
+    "string":[0,0.6,0.6],
+    "invalid-string":[0.6,0.6,0],
+    "number":[0.0,0.6,0.6],
 }
 ```
 
-Modal Presentation Style
+Skipping Characters
 -------------------------
-When presentarionStyleForRichTextEditor is a modal, modal-transition-style & modal-presentation-style can be configured
-```objective-c
-- (UIModalPresentationStyle)modalPresentationStyleForRichTextEditor:(RichTextEditor *)richTextEditor
-{
-	return UIModalPresentationFormSheet;
-}
+The skipping characters file is used to skip characters when the entered text is the same as the next character. In the example below, if a `]` is typed and the next character is a `]`, no text is inserted and the cursor moves forward by the offset.
 
-- (UIModalTransitionStyle)modalTransitionStyleForRichTextEditor:(RichTextEditor *)richTextEditor
-{
-	return UIModalTransitionStyleFlipHorizontal;
-}
+```javascript
+{"]": {"text":"]", "offset":"1"}}
 ```
 
-Customizing Features
+API usage
 -------------------------
-Features can be turned on/off by iplementing the following data source method
+Most text properties can be overriden. The example below changes comments to red, the indent to a space, and the parseDelay to 1 second. 
+
+Since parsing takes place in a background thread, we can only apply new syntax highlighting if the text is the same as it was when parsing began. Part of the reason is the coloring can hold up the main thread, which is not ideal. So, we wait until an idle moment to apply the coloring.
+
 ```objective-c
-- (RichTextEditorFeature)featuresEnabledForRichTextEditor:(RichTextEditor *)richTextEditor
-{
-   return RichTextEditorFeatureFont | 
-          RichTextEditorFeatureFontSize |
-          RichTextEditorFeatureBold |
-          RichTextEditorFeatureParagraphIndentation;
-}
+codeTextEditor.commentColor = [UIColor redColor];
+codeTextEditor.indentation = @" ";
+codeTextEditor.parseDelay = 1;
 ```
 
-Enable/Disable RichText Toolbar
+Object Model
 -------------------------
-You can hide the rich text toolbar by implementing the following method. This method gets called everytime textView becomes first responder.
-This can be usefull when you don't want the toolbar, instead you want to use the basic features (bold, italic, underline, strikeThrough), thoguht the UIMeMenuController
-```objective-c
-- (BOOL)shouldDisplayToolbarForRichTextEditor:(RichTextEditor *)richTextEditor
-{
-   return YES;
-} 
-```
+The object model for the [Abstract syntax tree](http://en.wikipedia.org/wiki/Abstract_syntax_tree) starts with comments and strings as the top most segments, followed by keywords and numbers as siblings. For more details, look at `PTDCodeViewEditorParser`
 
-Enable/Disable UIMenuController Options
--------------------------
-On default the UIMenuController options (bold, italic, underline, strikeThrough) are turned off. You can implement the follwing method if you want these features to be available through the UIMenuController along with copy/paste/selectAll etc.
-```objective-c
-- (BOOL)shouldDisplayRichTextOptionsInMenuControllerForRichTextrEditor:(RichTextEditor *)richTextEdiotor
-{
-   return YES;
-} 
-```
-
-Credits
--------------------------
-iPhone popover by werner77
-https://github.com/werner77/WEPopover
+![alt tag](https://raw.githubusercontent.com/PunchThrough/CodeViewEditor/master/objModel.png)
