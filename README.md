@@ -11,6 +11,31 @@ Features:
 
 ![alt tag](https://raw.githubusercontent.com/PunchThrough/CodeViewEditor/master/iphoneScreenshot.png)
 
+# Installation with CocoaPods 
+
+[CocoaPods](http://cocoapods.org)  is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the CodeViewEditor. 
+
+#### Podfile for iOS
+
+```ruby
+platform :ios, '7.0'
+pod 'iOS-Rich-Text-Editor' , :git => 'https://github.com/aryaxt/iOS-Rich-Text-Editor.git', :commit => '4ddd86bbd6764d0a052ffa2db4e90037562162d6'
+pod 'CodeTextEditor' , :git => 'https://github.com/PunchThrough/CodeTextEditor.git', :tag => '0.0.1'
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Custom Font Size Selection
 -------------------------
 Font size selection can be customized by implementing the following data source method
