@@ -13,7 +13,7 @@ Features:
 
 # Installation with CocoaPods 
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the CodeViewEditor. See the ["Getting Started" guide for more information](https://github.com/PunchThrough/CodeViewEditor/wiki) on CocoaPods as well as Example Project.
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the CodeViewEditor. See the ["Getting Started" guide for more information](https://github.com/PunchThrough/CodeViewEditor/wiki) on CocoaPods as well as an Example Project.
 
 #### Podfile for iOS
 
