@@ -1,25 +1,23 @@
 //
-//  MyRichTextEditor.m
-//  RichTextEditor
+//  PTDCodeViewEditor.m
 //
 //  Created by Matthew Chung on 7/15/14.
-//  Copyright (c) 2014 Aryan Ghassemi. All rights reserved.
+//  Copyright (c) 2014 Punch Through Design. All rights reserved.
 //
 
-#import "RichTextEditor.h"
-#import "MyRichTextEditor.h"
-#import "MyRichTextEditorToolbar.h"
-#import "MyRichTextEditorHelper.h"
-#import "MyRichTextEditorParser.h"
+#import "PTDCodeViewEditor.h"
+#import "PTDRichTextEditorToolbar.h"
+#import "PTDCodeViewEditorHelper.h"
+#import "PTDCodeViewEditorParser.h"
 #import "LineNumberLayoutManager.h"
 #import "NSAttributedString+MyRichTextEditor.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange range);
 
-@interface MyRichTextEditor() <MyRichTextEditorToolbarDataSource>
-@property (nonatomic, strong) MyRichTextEditorHelper *helper;
-@property (nonatomic, strong) MyRichTextEditorParser *parser;
+@interface PTDCodeViewEditor() <PTDRichTextEditorToolbarDataSource>
+@property (nonatomic, strong) PTDCodeViewEditorHelper *helper;
+@property (nonatomic, strong) PTDCodeViewEditorParser *parser;
 @property (nonatomic, strong) NSMutableArray *segments;
 @property (nonatomic, strong) NSMutableDictionary *textReplaceDic;
 @property (nonatomic, strong) NSMutableDictionary *keywordsDic;
@@ -31,9 +29,12 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
 @property (nonatomic, copy) ParsingCompletion parseCompletionHandler;
 @end
 
-@implementation MyRichTextEditor
+@implementation PTDCodeViewEditor
+
+#pragma mark Init
 
 - (id)initWithLineNumbers:(BOOL)lineNumbers textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile {
+
     // block copied from https://github.com/alldritt/TextKit_LineNumbers/blob/master/TextKit_LineNumbers/LineNumberTextView.m
     if (lineNumbers) {
         NSTextStorage* ts = [[NSTextStorage alloc] init];
@@ -60,13 +61,17 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         self = [super initWithFrame:CGRectZero];
     }
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:textReplaceFile ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSError *error;
-    NSArray *textJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    if (error) {
-        NSLog(@"JSONObjectWithData error: %@", error);
-        NSAssert(NO, @"");
+    NSArray *textJson = nil;
+    NSString *filePath = nil;
+    if (textReplaceFile) {
+        filePath = [[NSBundle mainBundle] pathForResource:textReplaceFile ofType:@"json"];
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSError *error;
+        textJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        if (error) {
+            NSLog(@"JSONObjectWithData error: %@", error);
+            NSAssert(NO, @"");
+        }
     }
     
     self.textReplaceDic = [@{} mutableCopy];
@@ -74,22 +79,30 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         self.textReplaceDic[dic[@"text"]] = dic;
     }
     
-    filePath = [[NSBundle mainBundle] pathForResource:keywordsFile ofType:@"txt"];
-    self.keywordsDic = [self.helper keywordsForPath:filePath];
-    filePath = [[NSBundle mainBundle] pathForResource:textColorsFile ofType:@"json"];
-    self.colorsDic = [self.helper colorsForPath:filePath];
-    filePath = [[NSBundle mainBundle] pathForResource:textSkipFile ofType:@"json"];
-    self.textSkipDic = [self.helper textSkipForPath:filePath];
+    if (keywordsFile) {
+        filePath = [[NSBundle mainBundle] pathForResource:keywordsFile ofType:@"txt"];
+        self.keywordsDic = [self.helper keywordsForPath:filePath];
+    }
+    if (textColorsFile) {
+        filePath = [[NSBundle mainBundle] pathForResource:textColorsFile ofType:@"json"];
+        self.colorsDic = [self.helper colorsForPath:filePath];
+    }
+    if (textSkipFile) {
+        filePath = [[NSBundle mainBundle] pathForResource:textSkipFile ofType:@"json"];
+        self.textSkipDic = [self.helper textSkipForPath:filePath];
+    }
 
     return self;
 }
+
+#pragma mark Override RichTextEditor
 
 - (void)commonInitialization
 {
     self.borderColor = [UIColor lightGrayColor];
     self.borderWidth = 1.0;
     
-	self.toolBar = [[MyRichTextEditorToolbar alloc] initWithFrame:CGRectMake(0, 0, [self currentScreenBoundsDependOnOrientation].size.width, RICHTEXTEDITOR_TOOLBAR_HEIGHT)
+	self.toolBar = [[PTDRichTextEditorToolbar alloc] initWithFrame:CGRectMake(0, 0, [self currentScreenBoundsDependOnOrientation].size.width, RICHTEXTEDITOR_TOOLBAR_HEIGHT)
                                                          delegate:self
                                                        dataSource:self];
     
@@ -97,8 +110,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     self.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.spellCheckingType = UITextSpellCheckingTypeNo;
     
-    self.helper = [[MyRichTextEditorHelper alloc] init];
-    self.parser = [[MyRichTextEditorParser alloc] init];
+    self.helper = [[PTDCodeViewEditorHelper alloc] init];
+    self.parser = [[PTDCodeViewEditorParser alloc] init];
     self.delegate = self;
     
     self.segments = [@[] mutableCopy];
@@ -111,12 +124,15 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     self.syntaxHighlightOn = YES;
     self.parseDelay = 1;
     
-    __weak MyRichTextEditor *weakSelf = self;
+    // callback called when parsing complete. if there have not been changes to the text since the parse, as determined
+    // by the seqNum, then the application of the segments for syntax highlighing is allowed to occur
+    __weak PTDCodeViewEditor *weakSelf = self;
     self.parseCompletionHandler = ^(long seqNum, NSMutableArray *segments, NSRange range) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, weakSelf.parseDelay * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             if (seqNum == weakSelf.charTypedSeqNum) {
                 weakSelf.segments = segments;
                 NSRange r = weakSelf.selectedRange;
+
                 // scroll fix from http://stackoverflow.com/questions/16716525/replace-uitextviews-text-with-attributed-string
                 if(SYSTEM_VERSION_LESS_THAN(@"8.0")) {
                     weakSelf.scrollEnabled = NO;
@@ -139,7 +155,7 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     };
 }
 
-// override RichTextEditor since we're using the Toolbar differently
+// we're not doing this so override and throw away the method call
 
 - (void)updateToolbarState {
 }
@@ -147,11 +163,18 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
 
 #pragma mark UITextViewDelegate
 
+// handles all char input and parsing of that input for syntax highlights
+
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    // this is used to see if there have been changes since the parse
     self.charTypedSeqNum++;
+
     NSRange selectedRange = textView.selectedRange;
     NSMutableString *insertedText = [[NSMutableString alloc] init];
-    // old range used to calculate how much text we need to process
+
+    // prevSegmentRange is the segment before adding the text the range falls under
+    // this is later used to compare with the segment the range falls under after the text is added
+    // then the union of the two is what is redrawn via the attr strings
     NSDictionary *prevSegment = [self.helper segmentForRange:range fromSegments:self.segments];
     NSRange prevSegmentRange = NSMakeRange([prevSegment[@"location"] integerValue], [prevSegment[@"length"] integerValue]);
     
@@ -164,6 +187,7 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     }
     // newline entered
     else if ([text isEqualToString:@"\n"]) {
+        // determines indentation based on count on ({ count) - (} count) up to the cursor
         NSString *beginningText = [textView.text substringToIndex:range.location];
         NSUInteger leftBrackers = [self.helper occurancesOfString:@[@"\\{"] text:beginningText addCaptureParen:YES].count;
         NSUInteger rightBrackers = [self.helper occurancesOfString:@[@"\\}"] text:beginningText addCaptureParen:YES].count;
@@ -171,6 +195,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         if (indentationCt<0) {
             indentationCt = 0;
         }
+        // determines if newline entered like {\n} and if so, adds indentation
+        // then sets cursor to last space on the entered newline
         BOOL inBrackets = [self.helper text:textView.text range:range leftNeighbor:@"{" rightNeighbor:@"}"];
         textView.selectedRange = range;
         
@@ -191,17 +217,19 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
             selectedRange.location = range.location + insertedText.length;
         }
     }
-    // anything else entered
+    // other stuff entered
     else {
+        // default selected range for this case is at the end of the text
         selectedRange = NSMakeRange(selectedRange.location+text.length, 0);
 
-        // when single char typed, check for replace { for {} , ...
         if (text.length == 1) {
+            // char replacing, ie when single char typed, check for insertion values. ie { for {} , ( for (), [ for []
             NSDictionary *dic = [self.textReplaceDic objectForKey:text];
             if (dic) {
                 [insertedText appendString:dic[@"value"]];
                 selectedRange.location = range.location + [dic[@"offset"] intValue];
             }
+            // char skipping, ie typing } when {cursor} yields {}cursor
             else {
                 NSString *nextChar = self.text.length>range.location ? [self.text substringWithRange:NSMakeRange(range.location, 1)] : nil;
                 if (nextChar && [text isEqualToString:nextChar] && [self.textSkipDic objectForKey:nextChar]) {
@@ -258,6 +286,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
 
 #pragma mark MyRichTextEditorToolbarDataSource
 
+// when text inserted from a menu
+
 - (void)insertText:(NSString *)text cursorOffset:(NSUInteger)cursorOffset
 {
     [self textView:self shouldChangeTextInRange:self.selectedRange replacementText:text];
@@ -268,6 +298,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     [self resignFirstResponder];
 }
 
+// used to initialize a file with text
+
 - (void)loadWithText:(NSString *)text
 {
     if(SYSTEM_VERSION_LESS_THAN(@"8.0")) {
@@ -275,6 +307,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
     self.text = text;
+    
+    // performs a parse on the whole file then builds the segments and assigns the colors
     [self.parser parseText:self.text segment:self.segments keywords:self.keywordsDic];
     self.segments = [[self.segments sortedArrayUsingDescriptors:@[self.helper.sortDesc]] mutableCopy];
 
@@ -283,17 +317,22 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     [self setAttributedText:attrString];
 }
 
+// parses the file and builds the ABT
+
 - (void)parseAndHighlight:(NSRange)range selectedRange:(NSRange)selectedRange prevSegmentRange:(NSRange)prevSegmentRange {
-    __weak MyRichTextEditor *weakSelf = self;
+    __weak PTDCodeViewEditor *weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        // saves the seq number for later comparison
         long backgroundCharTypedSeqNum = weakSelf.charTypedSeqNum;
         NSMutableArray *segmentsCopy = [weakSelf.segments mutableCopy];
         NSString *textCopy = [weakSelf.text copy];
         NSRange selectedRangeCopy = selectedRange;
-        
+
+        // parses the entire file
         [weakSelf.parser parseText:textCopy segment:segmentsCopy keywords:weakSelf.keywordsDic];
         segmentsCopy = [[segmentsCopy sortedArrayUsingDescriptors:@[weakSelf.helper.sortDesc]] mutableCopy];
-        
+
+        // see comment at top of shouldChangeTextInRange
         NSDictionary *newSegment = [weakSelf.helper segmentForRange:range fromSegments:segmentsCopy];
         NSRange newRange = NSMakeRange([newSegment[@"location"] integerValue], [newSegment[@"length"] integerValue]);
         
@@ -317,6 +356,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         weakSelf.parseCompletionHandler(backgroundCharTypedSeqNum, segmentsCopy, selectedRangeCopy);
     });
 }
+
+// block copied from https://github.com/alldritt/TextKit_LineNumbers/blob/master/TextKit_LineNumbers/LineNumberTextView.m
 
 - (void)drawRect:(CGRect)rect {
     

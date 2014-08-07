@@ -1,17 +1,17 @@
 //
-//  MyRichTextEditorHelper.m
+//  PTDCodeViewEditorHelper.h
 //  RichTextEditor
 //
 //  Created by Matthew Chung on 7/18/14.
-//  Copyright (c) 2014 Aryan Ghassemi. All rights reserved.
+//  Copyright (c) 2014 Punch Through Design. All rights reserved.
 //
 
-#import "MyRichTextEditorHelper.h"
+#import "PTDCodeViewEditorHelper.h"
 
-@interface MyRichTextEditorHelper()
+@interface PTDCodeViewEditorHelper()
 @end
 
-@implementation MyRichTextEditorHelper
+@implementation PTDCodeViewEditorHelper
 
 - (id)init {
     self = [super init];
@@ -234,6 +234,8 @@ static NSRegularExpression *numberRegex;
     }
     return colorsDic;
 }
+
+// returns a dic of chars to skip
 
 - (NSMutableDictionary*)textSkipForPath:(NSString*)filePath {
     NSMutableDictionary *textSkip;

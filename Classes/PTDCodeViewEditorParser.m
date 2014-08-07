@@ -1,13 +1,13 @@
 //
-//  MyRichTextEditorParser.m
+//  PTDCodeViewEditorParser.m
 //  RichTextEditor
 //
 //  Created by Matthew Chung on 7/25/14.
-//  Copyright (c) 2014 Aryan Ghassemi. All rights reserved.
+//  Copyright (c) 2014 Punch Through Design. All rights reserved.
 //
 
-#import "MyRichTextEditorParser.h"
-#import "MyRichTextEditorHelper.h"
+#import "PTDCodeViewEditorParser.h"
+#import "PTDCodeViewEditorHelper.h"
 
 typedef enum {
 	CommentStateSlashSlash = 1,
@@ -24,31 +24,19 @@ typedef enum {
 } StringState;
 
 
-@interface MyRichTextEditorParser()
-@property (nonatomic, strong) MyRichTextEditorHelper *helper;
+@interface PTDCodeViewEditorParser()
+@property (nonatomic, strong) PTDCodeViewEditorHelper *helper;
 @end
 
-@implementation MyRichTextEditorParser
+@implementation PTDCodeViewEditorParser
 
 - (id)init {
     self = [super init];
     if (self) {
-        self.helper = [[MyRichTextEditorHelper alloc] init];
+        self.helper = [[PTDCodeViewEditorHelper alloc] init];
     }
     return self;
 }
-
-- (void)monkeyPatchText:(NSString*)text range:(NSRange)range segment:(NSMutableArray*)segments keywords:(NSDictionary*)keywords {
-    [segments removeAllObjects];
-    
-    [self parseStringCommentsText:text segments:segments];
-    NSMutableArray *otherSegments = [self otherSegmentsFromText:text segments:segments];
-    NSMutableArray *lineSegments = [self lineSegmentsText:text otherSegments:otherSegments];
-    NSMutableArray *tokenizedSegments = [self tokenizeFromText:text otherSegments:lineSegments keywords:keywords];
-    
-    [segments addObjectsFromArray:tokenizedSegments];
-}
-
 
 // parses the text into segments based on comment symbols
 
@@ -57,15 +45,19 @@ typedef enum {
     
     [self parseStringCommentsText:text segments:segments];
     NSMutableArray *otherSegments = [self otherSegmentsFromText:text segments:segments];
-    NSMutableArray *lineSegments = [self lineSegmentsText:text otherSegments:otherSegments];
-    NSMutableArray *tokenizedSegments = [self tokenizeFromText:text otherSegments:lineSegments keywords:keywords];
+    NSMutableArray *tokenizedSegments = [self tokenizeFromText:text otherSegments:otherSegments keywords:keywords];
 
     [segments addObjectsFromArray:tokenizedSegments];
 }
 
+// parses text into high level segments, which consist of strings and comments
+
 - (void)parseStringCommentsText:(NSString*)text segments:(NSMutableArray*)segments {
+
+    // returns a dic containing the positioning / length of the symbol
     NSMutableDictionary *symbolsDic = [self.helper occurancesOfString:@[@"\\/\\/",@"\\/\\*",@"\\*\\/",@"\n",@"(.?)\"",@"(.?)'"] text:text addCaptureParen:YES];
-    
+
+    // removes escaped " and resets the positioning
     for (NSNumber *num in [symbolsDic copy]) {
         NSString *val = symbolsDic[num];
         if (val.length==2 && ([val hasSuffix:@"\'"] || [val hasSuffix:@"\""])) {
@@ -85,7 +77,15 @@ typedef enum {
     NSNumber *prevKey;
     NSNumber *key;
     
-    // comment ruleset
+    // state engine for comments and strings
+    // rules (excluding error neg use cases for simplicity) for adding segments:
+    // if /* found, keep looping until */ found
+    // if */ found, check prev state for /*
+    // if // found, keep looping until /n found
+    // if ' found, keep looping until another ' found
+    // if " found, keep looping until another " found
+    // if \n found, and prev state //  we found a comment
+    
     for (int j=0; j<symbolKeys.count; j++) {
         key = symbolKeys[j];
         NSString *symbol = symbolsDic[key];
@@ -159,6 +159,7 @@ typedef enum {
         }
     }
     
+    // handles case where last symbol found is an opening symbol, ie, handling case where last symbol found is /*
     if (commentState == CommentStateSlashStar) {
         key = @(text.length);
         [segments addObject:@{@"type":@"comment", @"location":prevKey, @"length":@([key integerValue]-[prevKey integerValue])}];
@@ -176,6 +177,9 @@ typedef enum {
         [segments addObject:@{@"type":@"string", @"location":prevKey, @"length":@([key integerValue]-[prevKey integerValue])}];
     }
 }
+
+// builds segments out of spaces between comment and string segments
+// BOF is beginning of file
 
 - (NSMutableArray*)otherSegmentsFromText:(NSString*)text segments:(NSMutableArray*)segments {
     NSMutableArray *otherSegments = [@[] mutableCopy];
@@ -237,6 +241,7 @@ typedef enum {
         }
     }
     
+    // handles case where there are no comments or strings
     if (sortedSegments.count == 0) {
         [otherSegments addObject:@{@"type":@"code", @"location":@(0), @"length":@(text.length)}];
     }
@@ -244,33 +249,7 @@ typedef enum {
     return otherSegments;
 }
 
-- (NSMutableArray *)lineSegmentsText:(NSString*)text otherSegments:(NSMutableArray*)otherSegments {
-//    NSMutableArray *lineSegments = [@{} mutableCopy];
-//    NSArray *sortedSegments = [otherSegments sortedArrayUsingDescriptors:@[self.helper.sortDesc]];
-//    for (int j=0;j<sortedSegments.count;j++) {
-//        NSDictionary *segment = sortedSegments[j];
-//        NSString *segmentText = [text substringWithRange:NSMakeRange([segment[@"location"] integerValue], [segment[@"length"] integerValue])];
-//        NSMutableDictionary *dic = [self.helper occurancesOfString:@[@"\n"] text:segmentText addCaptureParen:YES];
-//        if (!dic) {
-//            continue;
-//        }
-//        NSArray *lines = [[dic allValues] sortedArrayUsingSelector:@selector(compare:)];
-//        for (int i=1; i<lines.count-1; i++) {
-//            
-//        }
-//        
-//        
-//        if (dic && dic.count>1) {
-//            for (NSNumber *key in dic) {
-//                NSString *val = dic[key];
-//                if (val.length==0) {
-//                    continue;
-//                }
-//            }
-//        }
-//    }
-    return otherSegments;
-}
+// adds keywords and numbers to the 'other' segments
 
 - (NSMutableArray*)tokenizeFromText:(NSString*)text otherSegments:(NSMutableArray*)segments keywords:(NSDictionary*)keywords {
     NSMutableArray *sortedSegments = [[segments sortedArrayUsingDescriptors:@[self.helper.sortDesc]] mutableCopy];

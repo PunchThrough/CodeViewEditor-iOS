@@ -13,6 +13,10 @@
 		1583893B1735A5D7006DE713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389121735A5D7006DE713 /* UIKit.framework */; };
 		1583893C1735A5D7006DE713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389141735A5D7006DE713 /* Foundation.framework */; };
 		1583895A1735D7F4006DE713 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389591735D7F4006DE713 /* CoreText.framework */; };
+		96854AEE1993FA8300EA5AF3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96854AED1993FA8300EA5AF3 /* libPods.a */; };
+		96D1DF6F19930A580062A9AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D1DF6C19930A580062A9AD /* Default-568h@2x.png */; };
+		96D1DF7019930A580062A9AD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D1DF6D19930A580062A9AD /* Default.png */; };
+		96D1DF7119930A580062A9AD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D1DF6E19930A580062A9AD /* Default@2x.png */; };
 		96DD53621992E2CC0089E13D /* CodeTextEditorTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53591992E2CC0089E13D /* CodeTextEditorTests-Info.plist */; };
 		96DD53631992E2CC0089E13D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96DD535A1992E2CC0089E13D /* InfoPlist.strings */; };
 		96DD53651992E2CC0089E13D /* testKeywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 96DD535E1992E2CC0089E13D /* testKeywords.txt */; };
@@ -20,23 +24,23 @@
 		96DD53671992E2CC0089E13D /* testTextColors.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53601992E2CC0089E13D /* testTextColors.json */; };
 		96DD53681992E2CC0089E13D /* testTextReplace.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53611992E2CC0089E13D /* testTextReplace.json */; };
 		96DD536A1992E34A0089E13D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD53691992E34A0089E13D /* SenTestingKit.framework */; };
-		96DD536B1992E3600089E13D /* CodeTextEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD535D1992E2CC0089E13D /* CodeTextEditorTests.m */; };
+		96DD536B1992E3600089E13D /* CodeViewEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD535D1992E2CC0089E13D /* CodeViewEditorTests.m */; };
 		96DD53861992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */; };
 		96DD53871992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */; };
-		96DD53881992E7B60089E13D /* MyNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53731992E7B60089E13D /* MyNavViewController.m */; };
-		96DD53891992E7B60089E13D /* MyNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53731992E7B60089E13D /* MyNavViewController.m */; };
-		96DD538A1992E7B60089E13D /* MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53751992E7B60089E13D /* MyRichTextEditor.m */; };
-		96DD538B1992E7B60089E13D /* MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53751992E7B60089E13D /* MyRichTextEditor.m */; };
-		96DD538C1992E7B60089E13D /* MyRichTextEditorCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53771992E7B60089E13D /* MyRichTextEditorCategoryViewController.m */; };
-		96DD538D1992E7B60089E13D /* MyRichTextEditorCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53771992E7B60089E13D /* MyRichTextEditorCategoryViewController.m */; };
-		96DD538E1992E7B60089E13D /* MyRichTextEditorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53791992E7B60089E13D /* MyRichTextEditorHelper.m */; };
-		96DD538F1992E7B60089E13D /* MyRichTextEditorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53791992E7B60089E13D /* MyRichTextEditorHelper.m */; };
-		96DD53901992E7B60089E13D /* MyRichTextEditorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537C1992E7B60089E13D /* MyRichTextEditorParser.m */; };
-		96DD53911992E7B60089E13D /* MyRichTextEditorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537C1992E7B60089E13D /* MyRichTextEditorParser.m */; };
-		96DD53921992E7B60089E13D /* MyRichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537E1992E7B60089E13D /* MyRichTextEditorToggleButton.m */; };
-		96DD53931992E7B60089E13D /* MyRichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537E1992E7B60089E13D /* MyRichTextEditorToggleButton.m */; };
-		96DD53941992E7B60089E13D /* MyRichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53801992E7B60089E13D /* MyRichTextEditorToolbar.m */; };
-		96DD53951992E7B60089E13D /* MyRichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53801992E7B60089E13D /* MyRichTextEditorToolbar.m */; };
+		96DD53881992E7B60089E13D /* PTDNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53731992E7B60089E13D /* PTDNavViewController.m */; };
+		96DD53891992E7B60089E13D /* PTDNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53731992E7B60089E13D /* PTDNavViewController.m */; };
+		96DD538A1992E7B60089E13D /* PTDCodeViewEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53751992E7B60089E13D /* PTDCodeViewEditor.m */; };
+		96DD538B1992E7B60089E13D /* PTDCodeViewEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53751992E7B60089E13D /* PTDCodeViewEditor.m */; };
+		96DD538C1992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53771992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m */; };
+		96DD538D1992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53771992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m */; };
+		96DD538E1992E7B60089E13D /* PTDCodeViewEditorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53791992E7B60089E13D /* PTDCodeViewEditorHelper.m */; };
+		96DD538F1992E7B60089E13D /* PTDCodeViewEditorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53791992E7B60089E13D /* PTDCodeViewEditorHelper.m */; };
+		96DD53901992E7B60089E13D /* PTDCodeViewEditorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537C1992E7B60089E13D /* PTDCodeViewEditorParser.m */; };
+		96DD53911992E7B60089E13D /* PTDCodeViewEditorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537C1992E7B60089E13D /* PTDCodeViewEditorParser.m */; };
+		96DD53921992E7B60089E13D /* PTDRichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537E1992E7B60089E13D /* PTDRichTextEditorToggleButton.m */; };
+		96DD53931992E7B60089E13D /* PTDRichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537E1992E7B60089E13D /* PTDRichTextEditorToggleButton.m */; };
+		96DD53941992E7B60089E13D /* PTDRichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53801992E7B60089E13D /* PTDRichTextEditorToolbar.m */; };
+		96DD53951992E7B60089E13D /* PTDRichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53801992E7B60089E13D /* PTDRichTextEditorToolbar.m */; };
 		96DD53961992E7B60089E13D /* LineNumberLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53831992E7B60089E13D /* LineNumberLayoutManager.m */; };
 		96DD53971992E7B60089E13D /* LineNumberLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53831992E7B60089E13D /* LineNumberLayoutManager.m */; };
 		96DD53981992E7B60089E13D /* LineNumberTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53851992E7B60089E13D /* LineNumberTextView.m */; };
@@ -56,17 +60,10 @@
 		96DD53BC1992EA030089E13D /* textReplace.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53B21992EA030089E13D /* textReplace.json */; };
 		96DD53BD1992EA030089E13D /* textSkip.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53B31992EA030089E13D /* textSkip.json */; };
 		96DD53C01992EA090089E13D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53BF1992EA090089E13D /* ViewController.m */; };
+		96EC3E881993F7B8007E811A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389591735D7F4006DE713 /* CoreText.framework */; };
+		96EC3E891993F82F007E811A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389161735A5D7006DE713 /* CoreGraphics.framework */; };
+		E83661DB9A044848889FAD9C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 330D976DFD2E4E91880ACDC3 /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1583893D1735A5D7006DE713 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 158389051735A5D7006DE713 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1583890D1735A5D7006DE713;
-			remoteInfo = RichTextEditor;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1583890E1735A5D7006DE713 /* CodeTextEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeTextEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,10 +72,16 @@
 		158389161735A5D7006DE713 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		158389381735A5D7006DE713 /* CodeTextEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeTextEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		158389591735D7F4006DE713 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		19C0A5CD88594154AAE26C29 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		330D976DFD2E4E91880ACDC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		96854AED1993FA8300EA5AF3 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		96D1DF6C19930A580062A9AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		96D1DF6D19930A580062A9AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		96D1DF6E19930A580062A9AD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		96DD53591992E2CC0089E13D /* CodeTextEditorTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CodeTextEditorTests-Info.plist"; sourceTree = "<group>"; };
 		96DD535B1992E2CC0089E13D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		96DD535C1992E2CC0089E13D /* CodeTextEditorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeTextEditorTests.h; sourceTree = "<group>"; };
-		96DD535D1992E2CC0089E13D /* CodeTextEditorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeTextEditorTests.m; sourceTree = "<group>"; };
+		96DD535C1992E2CC0089E13D /* CodeViewEditorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeViewEditorTests.h; sourceTree = "<group>"; };
+		96DD535D1992E2CC0089E13D /* CodeViewEditorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeViewEditorTests.m; sourceTree = "<group>"; };
 		96DD535E1992E2CC0089E13D /* testKeywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testKeywords.txt; sourceTree = "<group>"; };
 		96DD535F1992E2CC0089E13D /* testSetupFiles.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testSetupFiles.ino; sourceTree = "<group>"; };
 		96DD53601992E2CC0089E13D /* testTextColors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testTextColors.json; sourceTree = "<group>"; };
@@ -88,25 +91,25 @@
 		96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+MyRichTextEditor.m"; sourceTree = "<group>"; };
 		96DD53701992E7B60089E13D /* RichTextEditor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RichTextEditor+Protected.h"; sourceTree = "<group>"; };
 		96DD53711992E7B60089E13D /* RichTextEditorToolbar+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RichTextEditorToolbar+Protected.h"; sourceTree = "<group>"; };
-		96DD53721992E7B60089E13D /* MyNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavViewController.h; sourceTree = "<group>"; };
-		96DD53731992E7B60089E13D /* MyNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavViewController.m; sourceTree = "<group>"; };
-		96DD53751992E7B60089E13D /* MyRichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditor.m; sourceTree = "<group>"; };
-		96DD53761992E7B60089E13D /* MyRichTextEditorCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorCategoryViewController.h; sourceTree = "<group>"; };
-		96DD53771992E7B60089E13D /* MyRichTextEditorCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorCategoryViewController.m; sourceTree = "<group>"; };
-		96DD53781992E7B60089E13D /* MyRichTextEditorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorHelper.h; sourceTree = "<group>"; };
-		96DD53791992E7B60089E13D /* MyRichTextEditorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorHelper.m; sourceTree = "<group>"; };
-		96DD537A1992E7B60089E13D /* MyRichTextEditorMacroPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorMacroPicker.h; sourceTree = "<group>"; };
-		96DD537B1992E7B60089E13D /* MyRichTextEditorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorParser.h; sourceTree = "<group>"; };
-		96DD537C1992E7B60089E13D /* MyRichTextEditorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorParser.m; sourceTree = "<group>"; };
-		96DD537D1992E7B60089E13D /* MyRichTextEditorToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorToggleButton.h; sourceTree = "<group>"; };
-		96DD537E1992E7B60089E13D /* MyRichTextEditorToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorToggleButton.m; sourceTree = "<group>"; };
-		96DD537F1992E7B60089E13D /* MyRichTextEditorToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditorToolbar.h; sourceTree = "<group>"; };
-		96DD53801992E7B60089E13D /* MyRichTextEditorToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRichTextEditorToolbar.m; sourceTree = "<group>"; };
+		96DD53721992E7B60089E13D /* PTDNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDNavViewController.h; sourceTree = "<group>"; };
+		96DD53731992E7B60089E13D /* PTDNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDNavViewController.m; sourceTree = "<group>"; };
+		96DD53751992E7B60089E13D /* PTDCodeViewEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDCodeViewEditor.m; sourceTree = "<group>"; };
+		96DD53761992E7B60089E13D /* PTDRichTextEditorCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDRichTextEditorCategoryViewController.h; sourceTree = "<group>"; };
+		96DD53771992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDRichTextEditorCategoryViewController.m; sourceTree = "<group>"; };
+		96DD53781992E7B60089E13D /* PTDCodeViewEditorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDCodeViewEditorHelper.h; sourceTree = "<group>"; };
+		96DD53791992E7B60089E13D /* PTDCodeViewEditorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDCodeViewEditorHelper.m; sourceTree = "<group>"; };
+		96DD537A1992E7B60089E13D /* PTDRichTextEditorMacroPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDRichTextEditorMacroPicker.h; sourceTree = "<group>"; };
+		96DD537B1992E7B60089E13D /* PTDCodeViewEditorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDCodeViewEditorParser.h; sourceTree = "<group>"; };
+		96DD537C1992E7B60089E13D /* PTDCodeViewEditorParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDCodeViewEditorParser.m; sourceTree = "<group>"; };
+		96DD537D1992E7B60089E13D /* PTDRichTextEditorToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDRichTextEditorToggleButton.h; sourceTree = "<group>"; };
+		96DD537E1992E7B60089E13D /* PTDRichTextEditorToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDRichTextEditorToggleButton.m; sourceTree = "<group>"; };
+		96DD537F1992E7B60089E13D /* PTDRichTextEditorToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDRichTextEditorToolbar.h; sourceTree = "<group>"; };
+		96DD53801992E7B60089E13D /* PTDRichTextEditorToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTDRichTextEditorToolbar.m; sourceTree = "<group>"; };
 		96DD53821992E7B60089E13D /* LineNumberLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineNumberLayoutManager.h; sourceTree = "<group>"; };
 		96DD53831992E7B60089E13D /* LineNumberLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNumberLayoutManager.m; sourceTree = "<group>"; };
 		96DD53841992E7B60089E13D /* LineNumberTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineNumberTextView.h; sourceTree = "<group>"; };
 		96DD53851992E7B60089E13D /* LineNumberTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNumberTextView.m; sourceTree = "<group>"; };
-		96DD539B1992E89E0089E13D /* MyRichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRichTextEditor.h; sourceTree = "<group>"; };
+		96DD539B1992E89E0089E13D /* PTDCodeViewEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTDCodeViewEditor.h; sourceTree = "<group>"; };
 		96DD539C1992E9C90089E13D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96DD539D1992E9C90089E13D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		96DD539F1992E9D00089E13D /* CodeTextEditor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CodeTextEditor-Info.plist"; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		96DD53B31992EA030089E13D /* textSkip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = textSkip.json; sourceTree = "<group>"; };
 		96DD53BE1992EA090089E13D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		96DD53BF1992EA090089E13D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		96EC3E861993F727007E811A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 				158389131735A5D7006DE713 /* UIKit.framework in Frameworks */,
 				158389151735A5D7006DE713 /* Foundation.framework in Frameworks */,
 				158389171735A5D7006DE713 /* CoreGraphics.framework in Frameworks */,
+				E83661DB9A044848889FAD9C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,9 +149,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96EC3E891993F82F007E811A /* CoreGraphics.framework in Frameworks */,
+				96EC3E881993F7B8007E811A /* CoreText.framework in Frameworks */,
 				96DD536A1992E34A0089E13D /* SenTestingKit.framework in Frameworks */,
 				1583893B1735A5D7006DE713 /* UIKit.framework in Frameworks */,
 				1583893C1735A5D7006DE713 /* Foundation.framework in Frameworks */,
+				96854AEE1993FA8300EA5AF3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +164,9 @@
 		158389031735A5D7006DE713 = {
 			isa = PBXGroup;
 			children = (
+				96D1DF6C19930A580062A9AD /* Default-568h@2x.png */,
+				96D1DF6D19930A580062A9AD /* Default.png */,
+				96D1DF6E19930A580062A9AD /* Default@2x.png */,
 				96DD53BE1992EA090089E13D /* ViewController.h */,
 				96DD53BF1992EA090089E13D /* ViewController.m */,
 				96DD53A91992EA030089E13D /* Resources */,
@@ -170,6 +181,7 @@
 				96DD53581992E2CC0089E13D /* CodeTextEditorTests */,
 				158389111735A5D7006DE713 /* Frameworks */,
 				1583890F1735A5D7006DE713 /* Products */,
+				19C0A5CD88594154AAE26C29 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,11 +197,14 @@
 		158389111735A5D7006DE713 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96854AED1993FA8300EA5AF3 /* libPods.a */,
+				96EC3E861993F727007E811A /* libPods.a */,
 				96DD53691992E34A0089E13D /* SenTestingKit.framework */,
 				158389591735D7F4006DE713 /* CoreText.framework */,
 				158389121735A5D7006DE713 /* UIKit.framework */,
 				158389141735A5D7006DE713 /* Foundation.framework */,
 				158389161735A5D7006DE713 /* CoreGraphics.framework */,
+				330D976DFD2E4E91880ACDC3 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,8 +214,8 @@
 			children = (
 				96DD53591992E2CC0089E13D /* CodeTextEditorTests-Info.plist */,
 				96DD535A1992E2CC0089E13D /* InfoPlist.strings */,
-				96DD535C1992E2CC0089E13D /* CodeTextEditorTests.h */,
-				96DD535D1992E2CC0089E13D /* CodeTextEditorTests.m */,
+				96DD535C1992E2CC0089E13D /* CodeViewEditorTests.h */,
+				96DD535D1992E2CC0089E13D /* CodeViewEditorTests.m */,
 				96DD535E1992E2CC0089E13D /* testKeywords.txt */,
 				96DD535F1992E2CC0089E13D /* testSetupFiles.ino */,
 				96DD53601992E2CC0089E13D /* testTextColors.json */,
@@ -214,20 +229,20 @@
 			children = (
 				96DD539A1992E89E0089E13D /* Public */,
 				96DD536D1992E7B60089E13D /* Categories */,
-				96DD53721992E7B60089E13D /* MyNavViewController.h */,
-				96DD53731992E7B60089E13D /* MyNavViewController.m */,
-				96DD53751992E7B60089E13D /* MyRichTextEditor.m */,
-				96DD53761992E7B60089E13D /* MyRichTextEditorCategoryViewController.h */,
-				96DD53771992E7B60089E13D /* MyRichTextEditorCategoryViewController.m */,
-				96DD53781992E7B60089E13D /* MyRichTextEditorHelper.h */,
-				96DD53791992E7B60089E13D /* MyRichTextEditorHelper.m */,
-				96DD537A1992E7B60089E13D /* MyRichTextEditorMacroPicker.h */,
-				96DD537B1992E7B60089E13D /* MyRichTextEditorParser.h */,
-				96DD537C1992E7B60089E13D /* MyRichTextEditorParser.m */,
-				96DD537D1992E7B60089E13D /* MyRichTextEditorToggleButton.h */,
-				96DD537E1992E7B60089E13D /* MyRichTextEditorToggleButton.m */,
-				96DD537F1992E7B60089E13D /* MyRichTextEditorToolbar.h */,
-				96DD53801992E7B60089E13D /* MyRichTextEditorToolbar.m */,
+				96DD53721992E7B60089E13D /* PTDNavViewController.h */,
+				96DD53731992E7B60089E13D /* PTDNavViewController.m */,
+				96DD53751992E7B60089E13D /* PTDCodeViewEditor.m */,
+				96DD53761992E7B60089E13D /* PTDRichTextEditorCategoryViewController.h */,
+				96DD53771992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m */,
+				96DD53781992E7B60089E13D /* PTDCodeViewEditorHelper.h */,
+				96DD53791992E7B60089E13D /* PTDCodeViewEditorHelper.m */,
+				96DD537A1992E7B60089E13D /* PTDRichTextEditorMacroPicker.h */,
+				96DD537B1992E7B60089E13D /* PTDCodeViewEditorParser.h */,
+				96DD537C1992E7B60089E13D /* PTDCodeViewEditorParser.m */,
+				96DD537D1992E7B60089E13D /* PTDRichTextEditorToggleButton.h */,
+				96DD537E1992E7B60089E13D /* PTDRichTextEditorToggleButton.m */,
+				96DD537F1992E7B60089E13D /* PTDRichTextEditorToolbar.h */,
+				96DD53801992E7B60089E13D /* PTDRichTextEditorToolbar.m */,
 				96DD53811992E7B60089E13D /* Vendor */,
 			);
 			path = Classes;
@@ -258,7 +273,7 @@
 		96DD539A1992E89E0089E13D /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				96DD539B1992E89E0089E13D /* MyRichTextEditor.h */,
+				96DD539B1992E89E0089E13D /* PTDCodeViewEditor.h */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -287,9 +302,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1583894A1735A5D7006DE713 /* Build configuration list for PBXNativeTarget "CodeTextEditor" */;
 			buildPhases = (
+				9C7DD593CFF84129B121E733 /* Check Pods Manifest.lock */,
 				1583890A1735A5D7006DE713 /* Sources */,
 				1583890B1735A5D7006DE713 /* Frameworks */,
 				1583890C1735A5D7006DE713 /* Resources */,
+				82454CB8C6A943A9BA9FC1DF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -312,7 +329,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1583893E1735A5D7006DE713 /* PBXTargetDependency */,
 			);
 			name = CodeTextEditorTests;
 			productName = RichTextEditorTests;
@@ -364,12 +380,15 @@
 				96DD53621992E2CC0089E13D /* CodeTextEditorTests-Info.plist in Resources */,
 				96DD53651992E2CC0089E13D /* testKeywords.txt in Resources */,
 				96DD53631992E2CC0089E13D /* InfoPlist.strings in Resources */,
+				96D1DF7119930A580062A9AD /* Default@2x.png in Resources */,
+				96D1DF6F19930A580062A9AD /* Default-568h@2x.png in Resources */,
 				96DD53681992E2CC0089E13D /* testTextReplace.json in Resources */,
 				96DD53671992E2CC0089E13D /* testTextColors.json in Resources */,
 				96DD53661992E2CC0089E13D /* testSetupFiles.ino in Resources */,
 				96DD53A61992E9F40089E13D /* MainStoryboard_iPhone.storyboard in Resources */,
 				96DD53BB1992EA030089E13D /* textColors.json in Resources */,
 				96DD53A51992E9F40089E13D /* MainStoryboard_iPad.storyboard in Resources */,
+				96D1DF7019930A580062A9AD /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +415,36 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		82454CB8C6A943A9BA9FC1DF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C7DD593CFF84129B121E733 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -404,18 +453,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				96DD539E1992E9C90089E13D /* AppDelegate.m in Sources */,
-				96DD53881992E7B60089E13D /* MyNavViewController.m in Sources */,
-				96DD538A1992E7B60089E13D /* MyRichTextEditor.m in Sources */,
-				96DD538E1992E7B60089E13D /* MyRichTextEditorHelper.m in Sources */,
-				96DD538C1992E7B60089E13D /* MyRichTextEditorCategoryViewController.m in Sources */,
-				96DD53901992E7B60089E13D /* MyRichTextEditorParser.m in Sources */,
+				96DD53881992E7B60089E13D /* PTDNavViewController.m in Sources */,
+				96DD538A1992E7B60089E13D /* PTDCodeViewEditor.m in Sources */,
+				96DD538E1992E7B60089E13D /* PTDCodeViewEditorHelper.m in Sources */,
+				96DD538C1992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m in Sources */,
+				96DD53901992E7B60089E13D /* PTDCodeViewEditorParser.m in Sources */,
 				96DD53C01992EA090089E13D /* ViewController.m in Sources */,
-				96DD53941992E7B60089E13D /* MyRichTextEditorToolbar.m in Sources */,
+				96DD53941992E7B60089E13D /* PTDRichTextEditorToolbar.m in Sources */,
 				96DD53861992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */,
 				96DD53961992E7B60089E13D /* LineNumberLayoutManager.m in Sources */,
 				96DD53981992E7B60089E13D /* LineNumberTextView.m in Sources */,
 				96DD53A81992E9FB0089E13D /* main.m in Sources */,
-				96DD53921992E7B60089E13D /* MyRichTextEditorToggleButton.m in Sources */,
+				96DD53921992E7B60089E13D /* PTDRichTextEditorToggleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,28 +473,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				96DD53971992E7B60089E13D /* LineNumberLayoutManager.m in Sources */,
-				96DD53891992E7B60089E13D /* MyNavViewController.m in Sources */,
-				96DD538D1992E7B60089E13D /* MyRichTextEditorCategoryViewController.m in Sources */,
-				96DD538B1992E7B60089E13D /* MyRichTextEditor.m in Sources */,
-				96DD53951992E7B60089E13D /* MyRichTextEditorToolbar.m in Sources */,
+				96DD53891992E7B60089E13D /* PTDNavViewController.m in Sources */,
+				96DD538D1992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m in Sources */,
+				96DD538B1992E7B60089E13D /* PTDCodeViewEditor.m in Sources */,
+				96DD53951992E7B60089E13D /* PTDRichTextEditorToolbar.m in Sources */,
 				96DD53991992E7B60089E13D /* LineNumberTextView.m in Sources */,
-				96DD53911992E7B60089E13D /* MyRichTextEditorParser.m in Sources */,
-				96DD536B1992E3600089E13D /* CodeTextEditorTests.m in Sources */,
+				96DD53911992E7B60089E13D /* PTDCodeViewEditorParser.m in Sources */,
+				96DD536B1992E3600089E13D /* CodeViewEditorTests.m in Sources */,
 				96DD53871992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */,
-				96DD538F1992E7B60089E13D /* MyRichTextEditorHelper.m in Sources */,
-				96DD53931992E7B60089E13D /* MyRichTextEditorToggleButton.m in Sources */,
+				96DD538F1992E7B60089E13D /* PTDCodeViewEditorHelper.m in Sources */,
+				96DD53931992E7B60089E13D /* PTDRichTextEditorToggleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1583893E1735A5D7006DE713 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1583890D1735A5D7006DE713 /* CodeTextEditor */;
-			targetProxy = 1583893D1735A5D7006DE713 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		96DD535A1992E2CC0089E13D /* InfoPlist.strings */ = {
@@ -497,7 +538,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -519,7 +560,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -529,10 +570,16 @@
 		};
 		1583894B1735A5D7006DE713 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19C0A5CD88594154AAE26C29 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CodeTextEditor/CodeTextEditor-Prefix.pch";
-				INFOPLIST_FILE = "CodeTextEditor/CodeTextEditor-Info.plist";
+				GCC_PREFIX_HEADER = "CodeTextEditor-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/WEPopover\"",
+					"\"${PODS_ROOT}/Headers/iOS-Rich-Text-Editor\"",
+				);
+				INFOPLIST_FILE = "CodeTextEditor-Info.plist";
 				PRODUCT_NAME = CodeTextEditor;
 				WRAPPER_EXTENSION = app;
 			};
@@ -540,10 +587,16 @@
 		};
 		1583894C1735A5D7006DE713 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19C0A5CD88594154AAE26C29 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CodeTextEditor/CodeTextEditor-Prefix.pch";
-				INFOPLIST_FILE = "CodeTextEditor/CodeTextEditor-Info.plist";
+				GCC_PREFIX_HEADER = "CodeTextEditor-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/WEPopover\"",
+					"\"${PODS_ROOT}/Headers/iOS-Rich-Text-Editor\"",
+				);
+				INFOPLIST_FILE = "CodeTextEditor-Info.plist";
 				PRODUCT_NAME = CodeTextEditor;
 				WRAPPER_EXTENSION = app;
 			};
@@ -560,8 +613,20 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CodeTextEditor/CodeTextEditor-Prefix.pch";
-				INFOPLIST_FILE = "RichTextEditorTests/CodeTextEditorTests-Info.plist";
+				GCC_PREFIX_HEADER = "CodeTextEditor-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/WEPopover\"",
+					"\"${PODS_ROOT}/Headers/iOS-Rich-Text-Editor\"",
+				);
+				INFOPLIST_FILE = "CodeTextEditorTests/CodeTextEditorTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = CodeTextEditorTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -578,8 +643,20 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CodeTextEditor/CodeTextEditor-Prefix.pch";
-				INFOPLIST_FILE = "RichTextEditorTests/CodeTextEditorTests-Info.plist";
+				GCC_PREFIX_HEADER = "CodeTextEditor-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/WEPopover\"",
+					"\"${PODS_ROOT}/Headers/iOS-Rich-Text-Editor\"",
+				);
+				INFOPLIST_FILE = "CodeTextEditorTests/CodeTextEditorTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = CodeTextEditorTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};

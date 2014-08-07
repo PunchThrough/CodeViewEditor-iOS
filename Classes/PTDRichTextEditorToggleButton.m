@@ -3,16 +3,16 @@
 //  RichTextEditor
 //
 //  Created by Matthew Chung on 7/16/14.
-//  Copyright (c) 2014 Aryan Ghassemi. All rights reserved.
+//  Copyright (c) 2014 Punch Through Design. All rights reserved.
 //
 
-#import "MyRichTextEditorToggleButton.h"
+#import "PTDRichTextEditorToggleButton.h"
 
-@interface MyRichTextEditorToggleButton()
+@interface PTDRichTextEditorToggleButton()
 @property (nonatomic, strong) NSDictionary *json;
 @end
 
-@implementation MyRichTextEditorToggleButton
+@implementation PTDRichTextEditorToggleButton
 
 - (id)initWithFrame:(CGRect)frame json:(NSDictionary*)json
 {

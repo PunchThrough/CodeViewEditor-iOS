@@ -1,14 +1,15 @@
 //
-//  MyRichTextEditorHelper.h
+//  PTDCodeViewEditorHelper.h
 //  RichTextEditor
 //
 //  Created by Matthew Chung on 7/18/14.
-//  Copyright (c) 2014 Aryan Ghassemi. All rights reserved.
+//  Copyright (c) 2014 Punch Through Design. All rights reserved.
 //
+//  Helper class. see the .m for comments
 
-#import "MyRichTextEditor.h"
+#import "PTDCodeViewEditor.h"
 
-@interface MyRichTextEditorHelper : NSObject 
+@interface PTDCodeViewEditorHelper : NSObject 
 - (NSMutableDictionary*)occurancesOfString:(NSArray*)strArray text:(NSString*)text addCaptureParen:(BOOL)addParen;
 - (BOOL)text:(NSString*)text range:(NSRange)range leftNeighbor:(NSString*)left rightNeighbor:(NSString*)right;
 - (NSDictionary*)segmentForRange:(NSRange)range fromSegments:(NSMutableArray*)segments;
@@ -17,7 +18,5 @@
 - (NSMutableDictionary*)keywordsForPath:(NSString*)filePath;
 - (NSMutableDictionary*)colorsForPath:(NSString*)filePath;
 - (NSMutableDictionary*)textSkipForPath:(NSString*)filePath;
-
 @property (nonatomic, strong) NSSortDescriptor *sortDesc;
-
 @end

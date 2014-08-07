@@ -17,7 +17,7 @@
 }
 
 - (void)applySegment:(NSDictionary*)segment colors:(NSDictionary*)colors {
-    if (segment) {
+    if (segment && colors) {
         NSRange range = NSMakeRange([segment[@"location"] integerValue], [segment[@"length"] integerValue]);
         if ([segment[@"type"] isEqualToString:@"comment"] ||
             [segment[@"type"] isEqualToString:@"string"]  ||

@@ -1,23 +1,25 @@
 //
-//  MyRichTextEditorToolbar.m
-//  RichTextEditor
+//  PTDRichTextEditorToolbar.m
 //
 //  Created by Matthew Chung on 7/15/14.
-//  Copyright (c) 2014 Aryan Ghassemi. All rights reserved.
+//  Copyright (c) 2014 Punch Through Design. All rights reserved.
 //
-#import <AudioToolbox/AudioToolbox.h>
-#import "MyRichTextEditorToolbar.h"
-#import "MyRichTextEditorToggleButton.h"
-#import "MyRichTextEditorCategoryViewController.h"
-#import "MyNavViewController.h"
+//  Extends the toolbar driven off a config file.
+//
 
-@interface MyRichTextEditorToolbar() <MyRichTextEditorMacroPickerViewControllerDelegate>
-@property (nonatomic, strong) MyNavViewController *navVC;
+#import <AudioToolbox/AudioToolbox.h>
+#import "PTDRichTextEditorToolbar.h"
+#import "PTDRichTextEditorToggleButton.h"
+#import "PTDRichTextEditorCategoryViewController.h"
+#import "PTDNavViewController.h"
+
+@interface PTDRichTextEditorToolbar() <PTDRichTextEditorMacroPickerViewControllerDelegate>
+@property (nonatomic, strong) PTDNavViewController *navVC;
 @property (nonatomic, strong) NSArray *menuJson;
 @property (nonatomic, strong) NSMutableArray *btnArray;
 @end
 
-@implementation MyRichTextEditorToolbar
+@implementation PTDRichTextEditorToolbar
 
 - (void)initializeButtons
 {
@@ -44,18 +46,18 @@
     self.btnArray = [@[] mutableCopy];
     
     for (NSDictionary *dic in self.menuJson) {
-        MyRichTextEditorToggleButton *btn = [self buttonWithJson:dic];
+        PTDRichTextEditorToggleButton *btn = [self buttonWithJson:dic];
         [self.btnArray addObject:btn];
     }
 }
 
-- (MyRichTextEditorToggleButton *)buttonWithJson:(NSDictionary*)json
+- (PTDRichTextEditorToggleButton *)buttonWithJson:(NSDictionary*)json
 {
     NSString * text = json[@"text"];
     NSNumber* width = json[@"width"];
     SEL selector = @selector(btnSelected:);
 
-	MyRichTextEditorToggleButton *button = [[MyRichTextEditorToggleButton alloc] initWithFrame:CGRectZero json:json];
+	PTDRichTextEditorToggleButton *button = [[PTDRichTextEditorToggleButton alloc] initWithFrame:CGRectZero json:json];
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
 	[button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
 	[button setFrame:CGRectMake(0, 0, [width intValue], 0)];
@@ -88,7 +90,7 @@
 }
 
 - (void)btnSelected:(id)sender {
-    MyRichTextEditorToggleButton *btn = (MyRichTextEditorToggleButton*)sender;
+    PTDRichTextEditorToggleButton *btn = (PTDRichTextEditorToggleButton*)sender;
     NSDictionary *json  = btn.json;
     if ([json[@"type"] isEqualToString:@"text"]) {
         [[UIDevice currentDevice] playInputClick];
@@ -96,8 +98,8 @@
     }
     else if ([json[@"type"] isEqualToString:@"category"]) {
         if (!self.navVC) {
-            MyRichTextEditorCategoryViewController *macroPicker = [[MyRichTextEditorCategoryViewController alloc] initWithJson:json[@"children"]];
-            self.navVC = [[MyNavViewController alloc] initWithRootViewController:macroPicker];
+            PTDRichTextEditorCategoryViewController *macroPicker = [[PTDRichTextEditorCategoryViewController alloc] initWithJson:json[@"children"]];
+            self.navVC = [[PTDNavViewController alloc] initWithRootViewController:macroPicker];
             self.navVC.pickerDelegate = self;
         }
         

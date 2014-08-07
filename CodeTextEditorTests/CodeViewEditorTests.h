@@ -1,5 +1,5 @@
 //
-//  RichTextEditorTests.h
+//  CodeViewEditorTests.h
 //  RichTextEditorTests
 //
 //  Created by Aryan Gh on 5/4/13.
@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
-@interface CodeTextEditorTests : XCTestCase
+@interface CodeViewEditorTests : XCTestCase
 
 
 
