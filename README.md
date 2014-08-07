@@ -9,7 +9,7 @@ Features:
 - keystroke character replacement
 - auto indent
 
-![alt tag](https://raw.github.com/PunchThrough/CodeViewEditor/master/ipadScreenShot.png)
+![alt tag](https://raw.githubusercontent.com/PunchThrough/CodeViewEditor/master/iphoneScreenshot.png)
 
 Custom Font Size Selection
 -------------------------
