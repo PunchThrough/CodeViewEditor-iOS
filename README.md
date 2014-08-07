@@ -137,6 +137,6 @@ The object model for the [Abstract syntax tree](http://en.wikipedia.org/wiki/Abs
 
 Credits
 -------------------------
-[WEPopover](https://github.com/werner77/WEPopover) 
-[iOS-Rich-Text-Editor](https://github.com/aryaxt/iOS-Rich-Text-Editor) 
-[TextKit_LineNumbers](https://github.com/alldritt/TextKit_LineNumbers/)
+- [WEPopover](https://github.com/werner77/WEPopover) 
+- [iOS-Rich-Text-Editor](https://github.com/aryaxt/iOS-Rich-Text-Editor) 
+- [TextKit_LineNumbers](https://github.com/alldritt/TextKit_LineNumbers/)
