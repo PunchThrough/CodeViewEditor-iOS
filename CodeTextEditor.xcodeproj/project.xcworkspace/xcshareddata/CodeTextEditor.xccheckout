@@ -10,14 +10,14 @@
 	<string>CodeTextEditor</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0D9A775464458FAEE5941F5953C3E5F4C1E7F6CD</key>
+		<key>79CC65FD28AD63A3A4B32300DAE518927BA863AC</key>
 		<string>https://github.com/PunchThrough/iOS-Rich-Text-Editor.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CodeTextEditor.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0D9A775464458FAEE5941F5953C3E5F4C1E7F6CD</key>
+		<key>79CC65FD28AD63A3A4B32300DAE518927BA863AC</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0D9A775464458FAEE5941F5953C3E5F4C1E7F6CD</string>
+	<string>79CC65FD28AD63A3A4B32300DAE518927BA863AC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0D9A775464458FAEE5941F5953C3E5F4C1E7F6CD</string>
+			<string>79CC65FD28AD63A3A4B32300DAE518927BA863AC</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iOS-Code-Text-Editor</string>
 		</dict>

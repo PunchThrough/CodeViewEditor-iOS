@@ -7,7 +7,15 @@
 //
 
 #import "RichTextEditor.h"
-#import "RichTextEditor+Protected.h"
+//#import "RichTextEditor+Protected.h"
+
+@interface RichTextEditor(Protected) <RichTextEditorToolbarDelegate, RichTextEditorToolbarDataSource>
+- (CGRect)currentScreenBoundsDependOnOrientation;
+- (void)setText:(NSString *)text;
+- (void)applyAttributes:(id)attribute forKey:(NSString *)key atRange:(NSRange)range;
+- (void)removeAttributeForKey:(NSString *)key atRange:(NSRange)range;
+@property (nonatomic, strong) RichTextEditorToolbar *toolBar;
+@end
 
 @interface MyRichTextEditor : RichTextEditor <UITextViewDelegate>
 - (id)initWithLineNumbers:(BOOL)lineNumbers textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile;
