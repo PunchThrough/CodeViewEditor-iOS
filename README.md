@@ -47,6 +47,8 @@ The Toolbar is configured by menu~ipad.json / menu~iphone.json which are require
 }]
 ```
 
+More examples of the menu configuration are in the [Example Project](https://github.com/PunchThrough/CodeViewEditor/wiki).
+
 Custom Font Family Selection
 -------------------------
 Font family selection can be customized by implementing the following data source method
