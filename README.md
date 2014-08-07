@@ -25,9 +25,9 @@ pod 'CodeTextEditor' , :git => 'https://github.com/PunchThrough/CodeTextEditor.g
 
 Setting up Toolbar and Macros
 -------------------------
-The Toolbar is configured by menu~ipad.json and menu~iphone.json which need to be in the main bundle. Let's take a look at a sample file. 
+The Toolbar is configured by menu~ipad.json / menu~iphone.json which are required to be in the main bundle. Let's take a look at a sample snippet. This will give you a toolbar with a Macro Selector on the left most side. If you select it, it provides a Serial category and selecting that gives the option of inserting Serial.read(), with an offset of cursor 13 characters, or at the end of our inserted text.
 
-```objective-c
+```javascript
  [
   {
   "text":"Macros",
