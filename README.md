@@ -134,3 +134,9 @@ Object Model
 The object model for the [Abstract syntax tree](http://en.wikipedia.org/wiki/Abstract_syntax_tree) has at the top most level : comments, strings, and code. Siblings of code include keywords and numbers.  Look at `PTDCodeViewEditorParser` for a deeper dive or check out the image below.
 
 ![alt tag](https://raw.githubusercontent.com/PunchThrough/CodeViewEditor/master/objModel.png)
+
+Credits
+-------------------------
+[WEPopover](https://github.com/werner77/WEPopover) 
+[iOS-Rich-Text-Editor](https://github.com/aryaxt/iOS-Rich-Text-Editor) 
+[TextKit_LineNumbers](https://github.com/alldritt/TextKit_LineNumbers/)
