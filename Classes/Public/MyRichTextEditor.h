@@ -7,7 +7,7 @@
 //
 
 #import "RichTextEditor.h"
-//#import "RichTextEditor+Protected.h"
+// #import "RichTextEditor+Protected.h"
 
 @interface RichTextEditor(Protected) <RichTextEditorToolbarDelegate, RichTextEditorToolbarDataSource>
 - (CGRect)currentScreenBoundsDependOnOrientation;
