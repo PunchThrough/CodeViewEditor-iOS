@@ -28,34 +28,27 @@ Setting up Toolbar and Macros
 The Toolbar is configured by menu~ipad.json / menu~iphone.json which are required to be in the main bundle. Let's take a look at a sample snippet. This will give you a toolbar with a Macro Selector on the left most side. If you select it, it provides a Serial category and selecting that gives the option of inserting Serial.read(), with an offset of cursor 13 characters, or at the end of our inserted text.
 
 ```javascript
- [
-  {
+ [{
   "text":"Macros",
   "width":72,
   "type":"category",
-  "children":[
-              {
+  "children":[{
               "text":"Serial",
               "type":"category",
-              "children":[
-                          {
+              "children":[{
                           "text":"Serial.read()",
                           "type":"text",
                           "value":"Serial.read()",
                           "offset":13
-                          }
-                          ]
-              }
-              ]
-  },
-  {
+                          }]
+              }]
+  }, {
   "text":";",
   "width":44,
   "type":"text",
   "value":";",
   "offset":1
-  }
-]
+}]
 ```
 
 Custom Font Family Selection
