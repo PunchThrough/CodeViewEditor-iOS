@@ -13,7 +13,7 @@ Features:
 
 # Installation with CocoaPods 
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the CodeViewEditor. See the ["Getting Started" guide for more information](https://github.com/PunchThrough/CodeViewEditor/wiki) on CocoaPods as well as an Example Code.
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the CodeViewEditor. See the ["Getting Started" guide for more information](https://github.com/PunchThrough/CodeViewEditor/wiki) on CocoaPods as well as Example Project.
 
 #### Podfile for iOS
 
@@ -23,29 +23,39 @@ pod 'iOS-Rich-Text-Editor' , :git => 'https://github.com/aryaxt/iOS-Rich-Text-Ed
 pod 'CodeTextEditor' , :git => 'https://github.com/PunchThrough/CodeTextEditor.git', :tag => '0.0.1'
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Custom Font Size Selection
+Setting up Toolbar and Macros
 -------------------------
-Font size selection can be customized by implementing the following data source method
+The Toolbar is configured by menu~ipad.json and menu~iphone.json which need to be in the main bundle. Let's take a look at a sample file. 
 
 ```objective-c
-- (NSArray *)fontSizeSelectionForRichTextEditor:(RichTextEditor *)richTextEditor
-{
-	// pas an array of NSNumbers
-	return @[@5, @10, @20, @30];
-}
+ [
+  {
+  "text":"Macros",
+  "width":72,
+  "type":"category",
+  "children":[
+              {
+              "text":"Serial",
+              "type":"category",
+              "children":[
+                          {
+                          "text":"Serial.read()",
+                          "type":"text",
+                          "value":"Serial.read()",
+                          "offset":13
+                          }
+                          ]
+              }
+              ]
+  },
+  {
+  "text":";",
+  "width":44,
+  "type":"text",
+  "value":";",
+  "offset":1
+  }
+]
 ```
 
 Custom Font Family Selection
