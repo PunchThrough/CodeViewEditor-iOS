@@ -27,6 +27,8 @@ Setting up Toolbar and Macros
 -------------------------
 The Toolbar is configured by menu~ipad.json / menu~iphone.json which are required to be in the main bundle. Let's take a look at a sample snippet. This will give you a toolbar with a Macro Selector on the left most side. If you select it, it provides a Serial category and selecting that gives the option of inserting Serial.read(), with an offset of cursor 13 characters, or at the end of our inserted text.
 
+Next to the Macros is a ; which is a quick way to select a ;
+
 ```javascript
  [{
   "text":"Macros",
@@ -47,7 +49,7 @@ The Toolbar is configured by menu~ipad.json / menu~iphone.json which are require
 }]
 ```
 
-More examples of the menu configuration are in the [Example Project](https://github.com/PunchThrough/CodeViewEditor/wiki).
+More examples of the menu configuration are in the Example Project described at the bottom of the [Getting Started Guide](https://github.com/PunchThrough/CodeViewEditor/wiki).
 
 Custom Font Family Selection
 -------------------------
