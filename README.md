@@ -32,17 +32,13 @@ The Toolbar is configured by menu~ipad.json / menu~iphone.json which are require
   "text":"Macros",
   "width":72,
   "type":"category",
-  "children":[{
-              "text":"Serial",
-              "type":"category",
-              "children":[{
-                          "text":"Serial.read()",
-                          "type":"text",
-                          "value":"Serial.read()",
-                          "offset":13
-                          }]
-              }]
-  }, {
+  "children":[{"text":"Serial",
+               "type":"category",
+               "children":[{"text":"Serial.read()",
+                           "type":"text",
+                           "value":"Serial.read()",
+                           "offset":13}]}]
+  },{
   "text":";",
   "width":44,
   "type":"text",
