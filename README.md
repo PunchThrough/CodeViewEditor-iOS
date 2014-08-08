@@ -27,7 +27,7 @@ Setting up Toolbar and Macros
 -------------------------
 The Toolbar is configured by menu~ipad.json / menu~iphone.json which are required to be in the main bundle. Let's take a look at a sample snippet. This will give you a toolbar with a Macro Selector on the left most side. If you select it, it provides a Serial category and selecting that gives the option of inserting the text Serial.read(), with an offset of cursor 13 characters, or at the end of our inserted text.
 
-Next to the Macros is a ; which is a quick way to select a ;
+Next to the Macros is a `;` which is a quick way to select a `;`
 
 ```javascript
  [{
