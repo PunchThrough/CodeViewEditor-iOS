@@ -27,7 +27,7 @@
 }
 
 - (void)testSetupFiles {
-    PTDCodeViewEditor *editor = [[PTDCodeViewEditor alloc] initWithLineNumbers:YES textReplaceFile:@"testTextReplace" keywordsFile:@"testKeywords" textColorsFile:@"testTextColors" textSkipFile:@"testTextSkip"];
+    PTDCodeViewEditor *editor = [[PTDCodeViewEditor alloc] initWithLineViewWidth:25 textReplaceFile:@"testTextReplace" keywordsFile:@"testKeywords" textColorsFile:@"testTextColors" textSkipFile:@"testTextSkip"];
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"testSetupFiles" ofType:@"ino"];
     NSString *myText = [NSString stringWithContentsOfFile:filePath encoding:NSStringEncodingConversionAllowLossy error:nil];
@@ -138,7 +138,7 @@
 }
 
 - (void)testTextReplaceAndSkipAhead {
-    PTDCodeViewEditor *editor = [[PTDCodeViewEditor alloc] initWithLineNumbers:YES textReplaceFile:@"testTextReplace" keywordsFile:@"testKeywords" textColorsFile:@"testTextColors" textSkipFile:@"testTextSkip"];
+    PTDCodeViewEditor *editor = [[PTDCodeViewEditor alloc] initWithLineViewWidth:25 textReplaceFile:@"testTextReplace" keywordsFile:@"testKeywords" textColorsFile:@"testTextColors" textSkipFile:@"testTextSkip"];
     [editor textView:editor shouldChangeTextInRange:NSMakeRange(0, 0) replacementText:@"["];
     XCTAssertEqualObjects(editor.text, @"[]", @"");
     XCTAssertEqual(editor.selectedRange.location, 1, @"");
@@ -151,7 +151,7 @@
 }
 
 - (void)testStrings {
-    PTDCodeViewEditor *editor = [[PTDCodeViewEditor alloc] initWithLineNumbers:YES textReplaceFile:@"testTextReplace" keywordsFile:@"testKeywords" textColorsFile:@"testTextColors" textSkipFile:@"testTextSkip"];
+    PTDCodeViewEditor *editor = [[PTDCodeViewEditor alloc] initWithLineViewWidth:25 textReplaceFile:@"testTextReplace" keywordsFile:@"testKeywords" textColorsFile:@"testTextColors" textSkipFile:@"testTextSkip"];
     editor.parseDelay = 0.05;
     
     // non-terminated valid string

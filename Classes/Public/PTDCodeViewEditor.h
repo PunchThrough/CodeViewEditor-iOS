@@ -20,7 +20,7 @@
 /**
  *  Initializes the RichTextEditor
  *
- *  @param lineNumbers turns on or off line numbers
+ *  @param lineNumberWidth width of the line numbers view. set to 0 to exclude line numbers
  *  @param textReplaceFile the file that contains text entry substitions , ie ( for ()
  *  @param keywordsFile the file that contains keywords for syntax highlights
  *  @param textColorsFile the file that maps keywords to colors for syntax hightlights
@@ -28,7 +28,7 @@
  *
  *  @return an instance of the PTDRichTextEditor
  */
-- (id)initWithLineNumbers:(BOOL)lineNumbers textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile;
+- (id)initWithLineViewWidth:(int)lineNumberWidth textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile;
 
 /**
  *  loads the UITextView with text
@@ -68,10 +68,5 @@
  *  do the update
  */
 @property (nonatomic, readwrite) NSTimeInterval parseDelay;
-
-/**
- *  width of the line numbers view
- */
-@property (nonatomic, readwrite) NSUInteger lineNumberGutterWidth;
 
 @end

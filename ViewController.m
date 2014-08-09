@@ -20,9 +20,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged) name:UIContentSizeCategoryDidChangeNotification object:nil];
 
-    self.codeTextEditor = [[PTDCodeViewEditor alloc] initWithLineNumbers:YES textReplaceFile:@"textReplace" keywordsFile:@"keywords" textColorsFile:@"textColors" textSkipFile:@"textSkip"];
+    self.codeTextEditor = [[PTDCodeViewEditor alloc] initWithLineViewWidth:25 textReplaceFile:@"textReplace" keywordsFile:@"keywords" textColorsFile:@"textColors" textSkipFile:@"textSkip"];
     self.codeTextEditor.translatesAutoresizingMaskIntoConstraints = NO;
-    self.codeTextEditor.lineNumberGutterWidth = 25;
     
     [self.view addSubview:self.codeTextEditor];
     

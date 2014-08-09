@@ -27,16 +27,17 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
 @property (nonatomic, readwrite) long charTypedSeqNum;
 @property (nonatomic, copy) ParsingCompletion parseCompletionHandler;
 @property (nonatomic, strong) LineNumberLayoutManager *lm;
+@property (nonatomic, readwrite) NSUInteger lineNumberGutterWidth;
 @end
 
 @implementation PTDCodeViewEditor
 
 #pragma mark Init
 
-- (id)initWithLineNumbers:(BOOL)lineNumbers textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile {
+- (id)initWithLineViewWidth:(int)lineNumberWidth textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile {
 
     // block copied from https://github.com/alldritt/TextKit_LineNumbers/blob/master/TextKit_LineNumbers/LineNumberTextView.m
-    if (lineNumbers) {
+    if (lineNumberWidth>0) {
         NSTextStorage* ts = [[NSTextStorage alloc] init];
         self.lm = [[LineNumberLayoutManager alloc] init];
         NSTextContainer* tc = [[NSTextContainer alloc] initWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
@@ -50,7 +51,7 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         [self.lm addTextContainer:tc];
         [ts addLayoutManager:self.lm];
 
-        self.lineNumberGutterWidth = 40;
+        self.lineNumberGutterWidth = lineNumberWidth;
         
         if ((self = [super initWithFrame:CGRectZero textContainer:tc])) {
             self.contentMode = UIViewContentModeRedraw; // cause drawRect: to be called on frame resizing and divice rotation
