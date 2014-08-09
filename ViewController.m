@@ -22,7 +22,8 @@
 
     self.codeTextEditor = [[PTDCodeViewEditor alloc] initWithLineNumbers:YES textReplaceFile:@"textReplace" keywordsFile:@"keywords" textColorsFile:@"textColors" textSkipFile:@"textSkip"];
     self.codeTextEditor.translatesAutoresizingMaskIntoConstraints = NO;
-
+    self.codeTextEditor.lineNumberGutterWidth = 25;
+    
     [self.view addSubview:self.codeTextEditor];
     
     NSDictionary *views = @{@"myRichTextEditor":self.codeTextEditor};

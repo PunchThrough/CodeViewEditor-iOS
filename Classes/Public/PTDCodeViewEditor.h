@@ -68,4 +68,10 @@
  *  do the update
  */
 @property (nonatomic, readwrite) NSTimeInterval parseDelay;
+
+/**
+ *  width of the line numbers view
+ */
+@property (nonatomic, readwrite) NSUInteger lineNumberGutterWidth;
+
 @end

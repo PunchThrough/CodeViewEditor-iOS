@@ -24,9 +24,9 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
 @property (nonatomic, strong) NSMutableDictionary *colorsDic;
 @property (nonatomic, strong) NSMutableDictionary *textSkipDic;
 @property (nonatomic, strong) NSMutableArray *lines;
-@property (nonatomic, readwrite) NSUInteger lineNumberGutterWidth;
 @property (nonatomic, readwrite) long charTypedSeqNum;
 @property (nonatomic, copy) ParsingCompletion parseCompletionHandler;
+@property (nonatomic, strong) LineNumberLayoutManager *lm;
 @end
 
 @implementation PTDCodeViewEditor
@@ -38,7 +38,7 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     // block copied from https://github.com/alldritt/TextKit_LineNumbers/blob/master/TextKit_LineNumbers/LineNumberTextView.m
     if (lineNumbers) {
         NSTextStorage* ts = [[NSTextStorage alloc] init];
-        LineNumberLayoutManager* lm = [[LineNumberLayoutManager alloc] init];
+        self.lm = [[LineNumberLayoutManager alloc] init];
         NSTextContainer* tc = [[NSTextContainer alloc] initWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
         
         //  Wrap text to the text view's frame
@@ -47,8 +47,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         //  Exclude the line number gutter from the display area available for text display.
         tc.exclusionPaths = @[[UIBezierPath bezierPathWithRect:CGRectMake(0.0, 0.0, 40.0, CGFLOAT_MAX)]];
         
-        [lm addTextContainer:tc];
-        [ts addLayoutManager:lm];
+        [self.lm addTextContainer:tc];
+        [ts addLayoutManager:self.lm];
 
         self.lineNumberGutterWidth = 40;
         
@@ -365,6 +365,10 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         [super drawRect:rect];
     }
     else {
+        if (self.lineNumberGutterWidth != self.lm.lineNumberGutterWidth) {
+            self.lm.lineNumberGutterWidth = self.lineNumberGutterWidth;
+        }
+        
         //  Drag the line number gutter background.  The line numbers them selves are drawn by LineNumberLayoutManager.
         CGContextRef context = UIGraphicsGetCurrentContext();
         CGRect bounds = self.bounds;
@@ -374,7 +378,7 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         
         CGContextSetStrokeColorWithColor(context, [UIColor darkGrayColor].CGColor);
         CGContextSetLineWidth(context, 0.5);
-        CGContextStrokeRect(context, CGRectMake(bounds.origin.x + 39.5, bounds.origin.y, 0.5, CGRectGetHeight(bounds)));
+        CGContextStrokeRect(context, CGRectMake(bounds.origin.x + self.lineNumberGutterWidth, bounds.origin.y, 0.5, CGRectGetHeight(bounds)));
         
         [super drawRect:rect];
     }

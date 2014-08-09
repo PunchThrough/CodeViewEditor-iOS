@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LineNumberLayoutManager : NSLayoutManager
-
+@property (nonatomic, readwrite) NSUInteger lineNumberGutterWidth;
 @end

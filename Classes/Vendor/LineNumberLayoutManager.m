@@ -102,7 +102,7 @@
                                        //   Only draw line numbers for the paragraph's first line fragment.  Subsiquent fragments are wrapped portions of the paragraph and don't
                                        //   get the line number.
                                        if (charRange.location == paraRange.location) {
-                                           CGRect gutterRect = CGRectOffset(CGRectMake(0, rect.origin.y, 40.0, rect.size.height), origin.x, origin.y);
+                                           CGRect gutterRect = CGRectOffset(CGRectMake(0, rect.origin.y, self.lineNumberGutterWidth, rect.size.height), origin.x, origin.y);
                                            NSUInteger paraNumber = [self _paraNumberForRange:charRange];
                                            NSString* ln = [NSString stringWithFormat:@"%ld", (unsigned long) paraNumber + 1];
                                            CGSize size = [ln sizeWithAttributes:atts];
