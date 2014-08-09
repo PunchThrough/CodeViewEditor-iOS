@@ -60,7 +60,7 @@ Initialization is done by creating a `PTDCodeViewEditor` object and passing it c
  NSString *keywordsFile = @"keywords";
  NSString *textColorsFile = @"textColors";
  NSString *textSkipFile = @"textSkip";
- PTDCodeViewEditor *codeTextEditor = [[PTDCodeViewEditor alloc] initWithLineNumbers:YES textReplaceFile:textReplaceFile keywordsFile:@"keywords" textColorsFile:textColorsFile textSkipFile:textSkipFile];
+ PTDCodeViewEditor *codeTextEditor = [[PTDCodeViewEditor alloc] initWithLineViewWidth:40 textReplaceFile:textReplaceFile keywordsFile:@"keywords" textColorsFile:textColorsFile textSkipFile:textSkipFile];
 ```
 
 Text Replacement
