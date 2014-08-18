@@ -223,12 +223,11 @@ static NSRegularExpression *numberRegex;
             colorsDic[@"number"] = [UIColor colorWithRed:red green:green blue:blue alpha:1];
         }
         temp = textColors[@"keywords"];
-        if (temp) {
-            for (NSDictionary *dic in temp) {
-                for (NSString *key in dic) {
-                    NSArray *val = dic[key];
-                    colorsDic[key] = [UIColor colorWithRed:[val[0] floatValue] green:[val[1] floatValue] blue:[val[2] floatValue] alpha:1];
-                }
+        if (temp && [temp isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dic = (NSDictionary*)temp;
+            for (NSString *key in dic) {
+                NSArray *val = dic[key];
+                colorsDic[key] = [UIColor colorWithRed:[val[0] floatValue] green:[val[1] floatValue] blue:[val[2] floatValue] alpha:1];
             }
         }
     }
