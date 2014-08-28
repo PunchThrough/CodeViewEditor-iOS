@@ -35,7 +35,6 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
 #pragma mark Init
 
 - (id)initWithLineViewWidth:(int)lineNumberWidth textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile {
-
     // block copied from https://github.com/alldritt/TextKit_LineNumbers/blob/master/TextKit_LineNumbers/LineNumberTextView.m
     if (lineNumberWidth>0) {
         NSTextStorage* ts = [[NSTextStorage alloc] init];
@@ -44,14 +43,14 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         
         //  Wrap text to the text view's frame
         tc.widthTracksTextView = YES;
-        
+
+        self.lineNumberGutterWidth = lineNumberWidth;
+
         //  Exclude the line number gutter from the display area available for text display.
-        tc.exclusionPaths = @[[UIBezierPath bezierPathWithRect:CGRectMake(0.0, 0.0, 40.0, CGFLOAT_MAX)]];
+        tc.exclusionPaths = @[[UIBezierPath bezierPathWithRect:CGRectMake(0.0, 0.0, self.lineNumberGutterWidth+4, CGFLOAT_MAX)]];
         
         [self.lm addTextContainer:tc];
         [ts addLayoutManager:self.lm];
-
-        self.lineNumberGutterWidth = lineNumberWidth;
         
         if ((self = [super initWithFrame:CGRectZero textContainer:tc])) {
             self.contentMode = UIViewContentModeRedraw; // cause drawRect: to be called on frame resizing and divice rotation
