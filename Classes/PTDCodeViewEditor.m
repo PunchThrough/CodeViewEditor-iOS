@@ -93,6 +93,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         self.textSkipDic = [self.helper textSkipForPath:filePath];
     }
 
+    self.alwaysBounceVertical = YES;
+    
     return self;
 }
 
