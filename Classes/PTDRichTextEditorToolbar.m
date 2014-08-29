@@ -79,7 +79,12 @@
 	CGRect visibleRect;
 	visibleRect.origin = self.contentOffset;
 	visibleRect.size = self.bounds.size;
-	
+
+    // removes previously added views to toolbar, mainly spaces
+    for (UIView *v in [self.subviews copy]) {
+        [v removeFromSuperview];
+    }
+
     UIView *lastAddedView = self.subviews.lastObject;
 
     for (RichTextEditorToggleButton *btn in self.btnArray) {
@@ -90,6 +95,13 @@
     }
 
 	[self scrollRectToVisible:visibleRect animated:NO];
+}
+
+- (UIView *)separatorView
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, self.frame.size.height)];
+    view.backgroundColor = [UIColor colorWithRed:0 green:125.0/255.0 blue:1 alpha:1];
+    return view;
 }
 
 - (void)btnSelected:(id)sender {
