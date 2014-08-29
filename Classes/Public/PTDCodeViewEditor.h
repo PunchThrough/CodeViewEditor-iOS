@@ -69,4 +69,11 @@
  */
 @property (nonatomic, readwrite) NSTimeInterval parseDelay;
 
+/**
+ *  color of view to separate items in toolbar
+ *
+ */
+@property (nonatomic, strong) UIColor *separatorViewColor;
+
+
 @end

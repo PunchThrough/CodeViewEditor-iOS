@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSMutableArray *btnArray;
 @end
 
+#define SEPARATOR_VIEW 1001
+
 @implementation PTDRichTextEditorToolbar
 
 - (void)initializeButtons
@@ -99,9 +101,9 @@
 
 - (UIView *)separatorView
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, self.frame.size.height)];
-    view.backgroundColor = [UIColor colorWithRed:0 green:125.0/255.0 blue:1 alpha:1];
-    return view;
+    UIView *v = [super separatorView];
+    v.tag = SEPARATOR_VIEW;
+    return v;
 }
 
 - (void)btnSelected:(id)sender {
@@ -150,5 +152,12 @@
 {
 }
 
+- (void)setSeparaterViewColor:(UIColor *)separaterViewColor {
+    for (UIView *v in self.subviews) {
+        if (v.tag == SEPARATOR_VIEW) {
+            v.backgroundColor = separaterViewColor;
+        }
+    }
+}
 
 @end

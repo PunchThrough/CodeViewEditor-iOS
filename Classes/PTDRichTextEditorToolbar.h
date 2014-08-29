@@ -18,7 +18,7 @@
 
 @interface PTDRichTextEditorToolbar : RichTextEditorToolbar <UIInputViewAudioFeedback>
 @property (nonatomic, weak) id <PTDRichTextEditorToolbarDataSource> dataSource;
-
+@property (nonatomic, strong) UIColor *separaterViewColor;
 @end
 
 

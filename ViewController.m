@@ -22,7 +22,7 @@
 
     self.codeTextEditor = [[PTDCodeViewEditor alloc] initWithLineViewWidth:25 textReplaceFile:@"textReplace" keywordsFile:@"keywords" textColorsFile:@"textColors" textSkipFile:@"textSkip"];
     self.codeTextEditor.translatesAutoresizingMaskIntoConstraints = NO;
-    
+    self.codeTextEditor.separatorViewColor = [UIColor colorWithRed:0 green:125.0/255.0 blue:1 alpha:1];
     [self.view addSubview:self.codeTextEditor];
     
     NSDictionary *views = @{@"myRichTextEditor":self.codeTextEditor};

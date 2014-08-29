@@ -397,4 +397,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     }
 }
 
+- (void)setSeparatorViewColor:(UIColor *)separatorViewColor {
+    ((PTDRichTextEditorToolbar*)self.toolBar).separaterViewColor = separatorViewColor;
+}
+
 @end
