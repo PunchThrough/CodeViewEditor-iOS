@@ -14,6 +14,7 @@
 		1583893C1735A5D7006DE713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389141735A5D7006DE713 /* Foundation.framework */; };
 		1583895A1735D7F4006DE713 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389591735D7F4006DE713 /* CoreText.framework */; };
 		96854AEE1993FA8300EA5AF3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96854AED1993FA8300EA5AF3 /* libPods.a */; };
+		96BB755519B125C80089F356 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96BB755419B125C80089F356 /* x.png */; };
 		96D1DF6F19930A580062A9AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D1DF6C19930A580062A9AD /* Default-568h@2x.png */; };
 		96D1DF7019930A580062A9AD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D1DF6D19930A580062A9AD /* Default.png */; };
 		96D1DF7119930A580062A9AD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D1DF6E19930A580062A9AD /* Default@2x.png */; };
@@ -75,6 +76,7 @@
 		19C0A5CD88594154AAE26C29 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		330D976DFD2E4E91880ACDC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96854AED1993FA8300EA5AF3 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		96BB755419B125C80089F356 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		96D1DF6C19930A580062A9AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		96D1DF6D19930A580062A9AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		96D1DF6E19930A580062A9AD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		96DD53A91992EA030089E13D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				96BB755419B125C80089F356 /* x.png */,
 				96DD53AA1992EA030089E13D /* examplesketch.ino */,
 				96DD53AB1992EA030089E13D /* keywords.txt */,
 				96DD53AC1992EA030089E13D /* largeTestSketch.ino */,
@@ -368,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96BB755519B125C80089F356 /* x.png in Resources */,
 				96DD53B51992EA030089E13D /* keywords.txt in Resources */,
 				96DD53B81992EA030089E13D /* menu~ipad.json in Resources */,
 				96DD53B61992EA030089E13D /* largeTestSketch.ino in Resources */,

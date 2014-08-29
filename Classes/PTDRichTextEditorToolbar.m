@@ -54,6 +54,7 @@
 - (PTDRichTextEditorToggleButton *)buttonWithJson:(NSDictionary*)json
 {
     NSString * text = json[@"text"];
+    NSString * image = json[@"image"];
     NSNumber* width = json[@"width"];
     SEL selector = @selector(btnSelected:);
 
@@ -65,7 +66,9 @@
 	[button.titleLabel setTextColor:[UIColor blackColor]];
 	[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:text forState:UIControlStateNormal];
-	
+    if (image) {
+        [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    }
 	return button;
 }
 

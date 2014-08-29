@@ -1,7 +1,7 @@
 [
  {
- "text":"Dismiss",
- "width":72,
+ "image":"x.png",
+ "width":36,
  "type":"selector",
  "value":"dismissKeyboard",
  },
