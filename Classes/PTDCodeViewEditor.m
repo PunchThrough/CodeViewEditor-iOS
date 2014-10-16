@@ -16,6 +16,7 @@
 typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange range);
 
 @interface PTDCodeViewEditor() <PTDRichTextEditorToolbarDataSource>
+@property (nonatomic, weak) id <PTDCodeViewEditorEventsDelegate> eventsDelegate;
 @property (nonatomic, strong) PTDCodeViewEditorHelper *helper;
 @property (nonatomic, strong) PTDCodeViewEditorParser *parser;
 @property (nonatomic, strong) NSMutableArray *segments;
@@ -95,6 +96,11 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     self.alwaysBounceVertical = YES;
     
     return self;
+}
+
+- (void)setEditorEventsDelegate:(id<PTDCodeViewEditorEventsDelegate>)eventsDelegate
+{
+    [self setEventsDelegate:eventsDelegate];
 }
 
 #pragma mark Override RichTextEditor
@@ -267,6 +273,10 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
 
 // The callback for frame-changing of keyboard
 - (void)keyboardDidShow:(NSNotification *)notification {
+    if ([[self eventsDelegate] respondsToSelector:@selector(openedKeyboardForEditor:)]) {
+        [[self eventsDelegate] openedKeyboardForEditor:self];
+    }
+    
     NSDictionary *info = [notification userInfo];
     NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardFrame = [kbFrame CGRectValue];
@@ -297,6 +307,9 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
 
 - (void)didDismissKeyboard
 {
+    if ([[self eventsDelegate] respondsToSelector:@selector(dismissedKeyboardForEditor:)]) {
+        [[self eventsDelegate] dismissedKeyboardForEditor:self];
+    }
     [self resignFirstResponder];
 }
 
