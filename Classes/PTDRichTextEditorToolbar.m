@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSMutableArray *btnArray;
 @end
 
+#define SEPARATOR_VIEW 1001
+
 @implementation PTDRichTextEditorToolbar
 
 - (void)initializeButtons
@@ -54,6 +56,7 @@
 - (PTDRichTextEditorToggleButton *)buttonWithJson:(NSDictionary*)json
 {
     NSString * text = json[@"text"];
+    NSString * image = json[@"image"];
     NSNumber* width = json[@"width"];
     SEL selector = @selector(btnSelected:);
 
@@ -65,7 +68,9 @@
 	[button.titleLabel setTextColor:[UIColor blackColor]];
 	[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:text forState:UIControlStateNormal];
-	
+    if (image) {
+        [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    }
 	return button;
 }
 
@@ -76,7 +81,12 @@
 	CGRect visibleRect;
 	visibleRect.origin = self.contentOffset;
 	visibleRect.size = self.bounds.size;
-	
+
+    // removes previously added views to toolbar, mainly spaces
+    for (UIView *v in [self.subviews copy]) {
+        [v removeFromSuperview];
+    }
+
     UIView *lastAddedView = self.subviews.lastObject;
 
     for (RichTextEditorToggleButton *btn in self.btnArray) {
@@ -87,6 +97,13 @@
     }
 
 	[self scrollRectToVisible:visibleRect animated:NO];
+}
+
+- (UIView *)separatorView
+{
+    UIView *v = [super separatorView];
+    v.tag = SEPARATOR_VIEW;
+    return v;
 }
 
 - (void)btnSelected:(id)sender {
@@ -135,5 +152,12 @@
 {
 }
 
+- (void)setSeparaterViewColor:(UIColor *)separaterViewColor {
+    for (UIView *v in self.subviews) {
+        if (v.tag == SEPARATOR_VIEW) {
+            v.backgroundColor = separaterViewColor;
+        }
+    }
+}
 
 @end

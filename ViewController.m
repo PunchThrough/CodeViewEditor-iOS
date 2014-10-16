@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<PTDCodeViewEditorEventsDelegate>
 @property (strong, nonatomic) PTDCodeViewEditor *codeTextEditor;
 @end
 
@@ -22,7 +22,8 @@
 
     self.codeTextEditor = [[PTDCodeViewEditor alloc] initWithLineViewWidth:25 textReplaceFile:@"textReplace" keywordsFile:@"keywords" textColorsFile:@"textColors" textSkipFile:@"textSkip"];
     self.codeTextEditor.translatesAutoresizingMaskIntoConstraints = NO;
-    
+    self.codeTextEditor.separatorViewColor = [UIColor colorWithRed:0 green:125.0/255.0 blue:1 alpha:1];
+    [self.codeTextEditor setEditorEventsDelegate:self];
     [self.view addSubview:self.codeTextEditor];
     
     NSDictionary *views = @{@"myRichTextEditor":self.codeTextEditor};
@@ -38,6 +39,16 @@
 
 - (void)preferredContentSizeChanged {
     self.codeTextEditor.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+}
+
+- (void)openedKeyboardForEditor:(PTDCodeViewEditor *)editor
+{
+    NSLog(@"Opened keyboard for editor: %@", editor);
+}
+
+- (void)dismissedKeyboardForEditor:(PTDCodeViewEditor *)editor
+{
+    NSLog(@"Dismissed keyboard for editor: %@", editor);
 }
 
 @end
