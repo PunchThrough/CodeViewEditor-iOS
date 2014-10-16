@@ -7,6 +7,8 @@
 
 #import "RichTextEditor.h"
 
+@protocol PTDCodeViewEditorEventsDelegate;
+
 @interface RichTextEditor(Protected) <RichTextEditorToolbarDelegate, RichTextEditorToolbarDataSource>
 - (CGRect)currentScreenBoundsDependOnOrientation;
 - (void)setText:(NSString *)text;
@@ -29,6 +31,8 @@
  *  @return an instance of the PTDRichTextEditor
  */
 - (id)initWithLineViewWidth:(int)lineNumberWidth textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile;
+
+- (void)setEditorEventsDelegate:(id<PTDCodeViewEditorEventsDelegate>)eventsDelegate;
 
 /**
  *  loads the UITextView with text
@@ -75,5 +79,14 @@
  */
 @property (nonatomic, strong) UIColor *separatorViewColor;
 
+@end
+
+@protocol PTDCodeViewEditorEventsDelegate <NSObject>
+
+@optional
+- (void)openedKeyboardForEditor:(PTDCodeViewEditor *)editor;
+
+@optional
+- (void)dismissedKeyboardForEditor:(PTDCodeViewEditor *)editor;
 
 @end
