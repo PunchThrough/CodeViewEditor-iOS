@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AF5C8D3C5766B234D5F2335 /* libPods-CodeTextEditor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C9C91A9405A0D888AFB84A /* libPods-CodeTextEditor.a */; };
 		158389131735A5D7006DE713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389121735A5D7006DE713 /* UIKit.framework */; };
 		158389151735A5D7006DE713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389141735A5D7006DE713 /* Foundation.framework */; };
 		158389171735A5D7006DE713 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389161735A5D7006DE713 /* CoreGraphics.framework */; };
@@ -24,28 +25,17 @@
 		96DD53661992E2CC0089E13D /* testSetupFiles.ino in Resources */ = {isa = PBXBuildFile; fileRef = 96DD535F1992E2CC0089E13D /* testSetupFiles.ino */; };
 		96DD53671992E2CC0089E13D /* testTextColors.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53601992E2CC0089E13D /* testTextColors.json */; };
 		96DD53681992E2CC0089E13D /* testTextReplace.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53611992E2CC0089E13D /* testTextReplace.json */; };
-		96DD536A1992E34A0089E13D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD53691992E34A0089E13D /* SenTestingKit.framework */; };
 		96DD536B1992E3600089E13D /* CodeViewEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD535D1992E2CC0089E13D /* CodeViewEditorTests.m */; };
 		96DD53861992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */; };
-		96DD53871992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */; };
 		96DD53881992E7B60089E13D /* PTDNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53731992E7B60089E13D /* PTDNavViewController.m */; };
-		96DD53891992E7B60089E13D /* PTDNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53731992E7B60089E13D /* PTDNavViewController.m */; };
 		96DD538A1992E7B60089E13D /* PTDCodeViewEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53751992E7B60089E13D /* PTDCodeViewEditor.m */; };
-		96DD538B1992E7B60089E13D /* PTDCodeViewEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53751992E7B60089E13D /* PTDCodeViewEditor.m */; };
 		96DD538C1992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53771992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m */; };
-		96DD538D1992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53771992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m */; };
 		96DD538E1992E7B60089E13D /* PTDCodeViewEditorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53791992E7B60089E13D /* PTDCodeViewEditorHelper.m */; };
-		96DD538F1992E7B60089E13D /* PTDCodeViewEditorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53791992E7B60089E13D /* PTDCodeViewEditorHelper.m */; };
 		96DD53901992E7B60089E13D /* PTDCodeViewEditorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537C1992E7B60089E13D /* PTDCodeViewEditorParser.m */; };
-		96DD53911992E7B60089E13D /* PTDCodeViewEditorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537C1992E7B60089E13D /* PTDCodeViewEditorParser.m */; };
 		96DD53921992E7B60089E13D /* PTDRichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537E1992E7B60089E13D /* PTDRichTextEditorToggleButton.m */; };
-		96DD53931992E7B60089E13D /* PTDRichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD537E1992E7B60089E13D /* PTDRichTextEditorToggleButton.m */; };
 		96DD53941992E7B60089E13D /* PTDRichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53801992E7B60089E13D /* PTDRichTextEditorToolbar.m */; };
-		96DD53951992E7B60089E13D /* PTDRichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53801992E7B60089E13D /* PTDRichTextEditorToolbar.m */; };
 		96DD53961992E7B60089E13D /* LineNumberLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53831992E7B60089E13D /* LineNumberLayoutManager.m */; };
-		96DD53971992E7B60089E13D /* LineNumberLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53831992E7B60089E13D /* LineNumberLayoutManager.m */; };
 		96DD53981992E7B60089E13D /* LineNumberTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53851992E7B60089E13D /* LineNumberTextView.m */; };
-		96DD53991992E7B60089E13D /* LineNumberTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD53851992E7B60089E13D /* LineNumberTextView.m */; };
 		96DD539E1992E9C90089E13D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD539D1992E9C90089E13D /* AppDelegate.m */; };
 		96DD53A51992E9F40089E13D /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53A11992E9F40089E13D /* MainStoryboard_iPad.storyboard */; };
 		96DD53A61992E9F40089E13D /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DD53A31992E9F40089E13D /* MainStoryboard_iPhone.storyboard */; };
@@ -64,6 +54,16 @@
 		96EC3E881993F7B8007E811A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389591735D7F4006DE713 /* CoreText.framework */; };
 		96EC3E891993F82F007E811A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389161735A5D7006DE713 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		77BEE8BF19F02A320082DDFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 158389051735A5D7006DE713 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1583890D1735A5D7006DE713;
+			remoteInfo = CodeTextEditor;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1583890E1735A5D7006DE713 /* CodeTextEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeTextEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +85,6 @@
 		96DD535F1992E2CC0089E13D /* testSetupFiles.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testSetupFiles.ino; sourceTree = "<group>"; };
 		96DD53601992E2CC0089E13D /* testTextColors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testTextColors.json; sourceTree = "<group>"; };
 		96DD53611992E2CC0089E13D /* testTextReplace.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testTextReplace.json; sourceTree = "<group>"; };
-		96DD53691992E34A0089E13D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		96DD536E1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+MyRichTextEditor.h"; sourceTree = "<group>"; };
 		96DD536F1992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+MyRichTextEditor.m"; sourceTree = "<group>"; };
 		96DD53701992E7B60089E13D /* RichTextEditor+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RichTextEditor+Protected.h"; sourceTree = "<group>"; };
@@ -151,9 +150,9 @@
 			files = (
 				96EC3E891993F82F007E811A /* CoreGraphics.framework in Frameworks */,
 				96EC3E881993F7B8007E811A /* CoreText.framework in Frameworks */,
-				96DD536A1992E34A0089E13D /* SenTestingKit.framework in Frameworks */,
 				1583893B1735A5D7006DE713 /* UIKit.framework in Frameworks */,
 				1583893C1735A5D7006DE713 /* Foundation.framework in Frameworks */,
+				0AF5C8D3C5766B234D5F2335 /* libPods-CodeTextEditor.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +195,6 @@
 		158389111735A5D7006DE713 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96DD53691992E34A0089E13D /* SenTestingKit.framework */,
 				158389591735D7F4006DE713 /* CoreText.framework */,
 				158389121735A5D7006DE713 /* UIKit.framework */,
 				158389141735A5D7006DE713 /* Foundation.framework */,
@@ -328,14 +326,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1583894D1735A5D7006DE713 /* Build configuration list for PBXNativeTarget "CodeTextEditorTests" */;
 			buildPhases = (
+				EB9306743288D86071F3FB9E /* Check Pods Manifest.lock */,
 				158389331735A5D7006DE713 /* Sources */,
 				158389341735A5D7006DE713 /* Frameworks */,
 				158389351735A5D7006DE713 /* Resources */,
-				158389361735A5D7006DE713 /* ShellScript */,
+				F7FFAA0362E7268529D210DF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				77BEE8C019F02A320082DDFA /* PBXTargetDependency */,
 			);
 			name = CodeTextEditorTests;
 			productName = RichTextEditorTests;
@@ -351,6 +351,11 @@
 				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Aryan Ghassemi";
+				TargetAttributes = {
+					158389371735A5D7006DE713 = {
+						TestTargetID = 1583890D1735A5D7006DE713;
+					};
+				};
 			};
 			buildConfigurationList = 158389081735A5D7006DE713 /* Build configuration list for PBXProject "CodeTextEditor" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -410,19 +415,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		158389361735A5D7006DE713 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
 		BE34A34B99584E961191CCE9 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,6 +445,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		EB9306743288D86071F3FB9E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7FFAA0362E7268529D210DF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeTextEditor/Pods-CodeTextEditor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -480,21 +502,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DD53971992E7B60089E13D /* LineNumberLayoutManager.m in Sources */,
-				96DD53891992E7B60089E13D /* PTDNavViewController.m in Sources */,
-				96DD538D1992E7B60089E13D /* PTDRichTextEditorCategoryViewController.m in Sources */,
-				96DD538B1992E7B60089E13D /* PTDCodeViewEditor.m in Sources */,
-				96DD53951992E7B60089E13D /* PTDRichTextEditorToolbar.m in Sources */,
-				96DD53991992E7B60089E13D /* LineNumberTextView.m in Sources */,
-				96DD53911992E7B60089E13D /* PTDCodeViewEditorParser.m in Sources */,
 				96DD536B1992E3600089E13D /* CodeViewEditorTests.m in Sources */,
-				96DD53871992E7B60089E13D /* NSAttributedString+MyRichTextEditor.m in Sources */,
-				96DD538F1992E7B60089E13D /* PTDCodeViewEditorHelper.m in Sources */,
-				96DD53931992E7B60089E13D /* PTDRichTextEditorToggleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		77BEE8C019F02A320082DDFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1583890D1735A5D7006DE713 /* CodeTextEditor */;
+			targetProxy = 77BEE8BF19F02A320082DDFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		96DD535A1992E2CC0089E13D /* InfoPlist.strings */ = {
@@ -600,25 +620,63 @@
 		};
 		1583894E1735A5D7006DE713 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE9304FF531CEE181FD7512F /* Pods-CodeTextEditor.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CodeTextEditor.app/CodeTextEditor";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CodeTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "CodeTextEditorTests/CodeTextEditorTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-CodeTextEditor-WEPopover\"",
+					"-l\"Pods-CodeTextEditor-iOS-Rich-Text-Editor\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = CodeTextEditorTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeTextEditor.app/CodeTextEditor";
 			};
 			name = Debug;
 		};
 		1583894F1735A5D7006DE713 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60BD31DEEA76E0433C165D2E /* Pods-CodeTextEditor.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CodeTextEditor.app/CodeTextEditor";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CodeTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "CodeTextEditorTests/CodeTextEditorTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-CodeTextEditor-WEPopover\"",
+					"-l\"Pods-CodeTextEditor-iOS-Rich-Text-Editor\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = CodeTextEditorTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeTextEditor.app/CodeTextEditor";
 			};
 			name = Release;
 		};
