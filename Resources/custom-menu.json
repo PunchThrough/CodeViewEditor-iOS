@@ -1,0 +1,29 @@
+[
+    {
+        "text": "Custom Menu",
+        "width": 110,
+        "type": "selector",
+        "value": "dismissKeyboard"
+    },
+    {
+        "text": "xyzzy",
+        "width": 70,
+        "type": "text",
+        "value": "xyzzy",
+        "offset": 5
+    },
+    {
+        "text": "iddqd",
+        "width": 70,
+        "type": "text",
+        "value": "iddqd",
+        "offset": 5
+    },
+    {
+        "text": "there is no cow level",
+        "width": 200,
+        "type": "text",
+        "value": "there is no cow level",
+        "offset": 21
+    }
+]
