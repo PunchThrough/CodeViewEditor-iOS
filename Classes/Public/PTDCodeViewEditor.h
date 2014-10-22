@@ -20,28 +20,6 @@
 @interface PTDCodeViewEditor : RichTextEditor <UITextViewDelegate>
 
 /**
- *  Initializes the RichTextEditor
- *
- *  @param lineNumberWidth width of the line numbers view. set to 0 to exclude line numbers
- *  @param textReplaceFile the file that contains text entry substitions , ie ( for ()
- *  @param keywordsFile the file that contains keywords for syntax highlights
- *  @param textColorsFile the file that maps keywords to colors for syntax hightlights
- *  @param textSkipFile the file that contains keystrokes that skip the next char, ie with (cursor), typing ) goes to ()cursor
- *
- *  @return an instance of the PTDRichTextEditor
- */
-- (id)initWithLineViewWidth:(int)lineNumberWidth textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile;
-
-- (void)setEditorEventsDelegate:(id<PTDCodeViewEditorEventsDelegate>)eventsDelegate;
-
-/**
- *  loads the UITextView with text
- *
- *  @param text the text to load the file with
- */
-- (void)loadWithText:(NSString *)text;
-
-/**
  *  color for comments
  */
 @property (nonatomic, strong) UIColor *commentColor;
@@ -75,9 +53,36 @@
 
 /**
  *  color of view to separate items in toolbar
- *
  */
 @property (nonatomic, strong) UIColor *separatorViewColor;
+
+/**
+ *  Initializes the RichTextEditor
+ *
+ *  @param lineNumberWidth width of the line numbers view. set to 0 to exclude line numbers
+ *  @param textReplaceFile the file that contains text entry substitions , ie ( for ()
+ *  @param keywordsFile the file that contains keywords for syntax highlights
+ *  @param textColorsFile the file that maps keywords to colors for syntax hightlights
+ *  @param textSkipFile the file that contains keystrokes that skip the next char, ie with (cursor), typing ) goes to ()cursor
+ *
+ *  @return an instance of the PTDRichTextEditor
+ */
+- (id)initWithLineViewWidth:(int)lineNumberWidth textReplaceFile:(NSString*)textReplaceFile keywordsFile:(NSString*)keywordsFile textColorsFile:(NSString*)textColorsFile textSkipFile:(NSString*)textSkipFile;
+
+- (void)setEditorEventsDelegate:(id<PTDCodeViewEditorEventsDelegate>)eventsDelegate;
+
+/**
+ *  loads the UITextView with text
+ *
+ *  @param text the text to load the file with
+ */
+- (void)loadWithText:(NSString *)text;
+
+/**
+ *  closes the keyboard and toolbar. useful when you leave the VC containing the editor without
+ *  closing the keyboard first.
+ */
+- (void)closeKeyboardAndToolbar;
 
 @end
 

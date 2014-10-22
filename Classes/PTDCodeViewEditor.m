@@ -313,6 +313,11 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     [self resignFirstResponder];
 }
 
+- (void)closeKeyboardAndToolbar
+{
+    [self didDismissKeyboard];
+}
+
 // used to initialize a file with text
 
 - (void)loadWithText:(NSString *)text
