@@ -6,7 +6,8 @@
 //
 
 #import "RichTextEditor.h"
-#import "PTDRichTextEditorToolbar.h"
+
+@class PTDRichTextEditorToolbar;
 
 @protocol PTDCodeViewEditorEventsDelegate;
 
