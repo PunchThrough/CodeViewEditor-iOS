@@ -419,4 +419,9 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     self.toolBar.separaterViewColor = separatorViewColor;
 }
 
+- (void)setToolbarButtonsFromJsonResourceWithName:(NSString *)resourceName error:(NSError **)error
+{
+    [self.toolBar initializeCustomButtonsFromJsonResourceWithName:resourceName error:error];
+}
+
 @end

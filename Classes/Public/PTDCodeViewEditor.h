@@ -85,6 +85,15 @@
  */
 - (void)closeKeyboardAndToolbar;
 
+/**
+ *  Initializes toolbar buttons from a JSON file with name `resourceName`.
+ *  For example: "myCustomMenu.json" -> resourceName: @"myCustomMenu"
+ * 
+ *  @param resourceName The name of the JSON resource to be opened and used as a menu. Don't incldue the JSON extension.
+ *  @param error If there's a problem loading the JSON resource, error will be non-nil
+ */
+- (void)setToolbarButtonsFromJsonResourceWithName:(NSString *)resourceName error:(NSError **)error;
+
 @end
 
 @protocol PTDCodeViewEditorEventsDelegate <NSObject>
