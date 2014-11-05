@@ -349,12 +349,17 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
             rangeUnion = prevSegmentRange;
         }
         else {
-            // should never get here
-            NSAssert(NO, @"");
+            // ranges to reparse can not be found, safe to reparse entire file
+            NSLog(@"reparsing entire file");
+            if (!self.segments) {
+                self.segments = [@[] mutableCopy];
+            }
+            [self.parser parseText:self.text segment:self.segments keywords:self.keywordsDic];
+            self.segments = [[self.segments sortedArrayUsingDescriptors:@[self.helper.sortDesc]] mutableCopy];
+            NSLog(@"reparsing entire file");
         }
         
         segmentsCopy = [weakSelf.helper segmentsForRange:rangeUnion fromSegments:segmentsCopy];
-        
         weakSelf.parseCompletionHandler(backgroundCharTypedSeqNum, segmentsCopy, selectedRangeCopy);
     });
 }
