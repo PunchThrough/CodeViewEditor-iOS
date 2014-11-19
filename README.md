@@ -4,7 +4,7 @@ Code Editor for iPhone &amp; iPad
 
 Features:
 - macro selection
-- macro configuratin
+- macro configuration
 - comment, string, number, and keyword highlighting
 - keystroke character replacement
 - auto indent
