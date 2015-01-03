@@ -105,4 +105,7 @@
 @optional
 - (void)dismissedKeyboardForEditor:(PTDCodeViewEditor *)editor;
 
+@optional
+- (BOOL)shouldBeginEditingForEditor:(PTDCodeViewEditor *)editor;
+
 @end

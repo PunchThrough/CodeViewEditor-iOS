@@ -234,8 +234,20 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
             // char replacing, ie when single char typed, check for insertion values. ie { for {} , ( for (), [ for []
             NSDictionary *dic = [self.textReplaceDic objectForKey:text];
             if (dic) {
-                [insertedText appendString:dic[@"value"]];
-                selectedRange.location = range.location + [dic[@"offset"] intValue];
+                //checking to see if the next character is whitespace before inserting anything.
+                NSString *nextChar = self.text.length>range.location ? [self.text substringWithRange:NSMakeRange(range.location, 1)] : nil;
+                if ( nextChar ) {
+                    nextChar = [nextChar stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    if ( [nextChar isEqualToString:@""] ) {
+                        [insertedText appendString:dic[@"value"]];
+                        selectedRange.location = range.location + [dic[@"offset"] intValue];
+                    } else {
+                        [insertedText appendString:text];
+                    }
+                } else {
+                    [insertedText appendString:dic[@"value"]];
+                    selectedRange.location = range.location + [dic[@"offset"] intValue];
+                }
             }
             // char skipping, ie typing } when {cursor} yields {}cursor
             else {
@@ -267,12 +279,26 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     return NO;
 }
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if ( [self.eventsDelegate respondsToSelector:@selector(shouldBeginEditingForEditor:)] ) {
+        return [self.eventsDelegate shouldBeginEditingForEditor:self];
+    } else {
+        return YES;
+    }
+}
+
 #pragma mark UITextViewTextDidChangeNotification
 
 // inspired by http://www.think-in-g.net/ghawk/blog/2012/09/practicing-auto-layout-an-example-of-keyboard-sensitive-layout/
 
 // The callback for frame-changing of keyboard
 - (void)keyboardDidShow:(NSNotification *)notification {
+    
+    if ( !self.isFirstResponder ) {
+        return;
+    }
+    
     if ([[self eventsDelegate] respondsToSelector:@selector(openedKeyboardForEditor:)]) {
         [[self eventsDelegate] openedKeyboardForEditor:self];
     }
@@ -282,12 +308,24 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     CGRect keyboardFrame = [kbFrame CGRectValue];
  
     BOOL isPortrait = UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
-    CGFloat height = isPortrait ? keyboardFrame.size.height : keyboardFrame.size.width;
+    BOOL isOS8OrLater = [[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"];
+    CGFloat height;
+    
+    if ( isOS8OrLater ) {
+        height = keyboardFrame.size.height;
+    } else {
+        height = isPortrait ? keyboardFrame.size.height : keyboardFrame.size.width;
+    }
     
     self.contentInset = UIEdgeInsetsMake(0, 0, height, 0);
 }
 
-- (void)keyboardWillHide:(NSNotification *)notification {
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    if ( !self.isFirstResponder ) {
+        return;
+    }
+    [self closeKeyboardAndToolbar];
     self.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
