@@ -129,6 +129,56 @@ codeTextEditor.indentation = @" ";
 codeTextEditor.parseDelay = 1;
 ```
 
+Event Delegation
+-------------------------
+By implementing `PTDCodeViewEditorEventsDelegate`, your view controller can receive delegate calls for two events:
+
+* Keyboard opened: `- (void)openedKeyboardForEditor:(PTDCodeViewEditor *)editor;`
+* Keyboard dismissed: `- (void)dismissedKeyboardForEditor:(PTDCodeViewEditor *)editor;`
+
+These methods are both optional. They're useful if you want to tie app behavior to editor behavior, i.e. saving a document whenever the keyboard opens or is dismissed.
+
+Here's an example of how you can use the EventsDelegate in your view controller:
+
+```objective-c
+//
+//  ViewController.m
+//
+
+#import "ViewController.h"
+
+@interface ViewController ()<PTDCodeViewEditorEventsDelegate>
+@property (strong, nonatomic) PTDCodeViewEditor *codeTextEditor;
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.codeTextEditor = [[PTDCodeViewEditor alloc] initWithLineViewWidth:25 textReplaceFile:@"textReplace" keywordsFile:@"keywords" textColorsFile:@"textColors" textSkipFile:@"textSkip"];
+    [self.codeTextEditor setEditorEventsDelegate:self];
+    [self.view addSubview:self.codeTextEditor];
+
+    // other setup goes here
+}
+
+- (void)openedKeyboardForEditor:(PTDCodeViewEditor *)editor
+{
+    NSLog(@"Opened keyboard for editor: %@", editor);
+}
+
+- (void)dismissedKeyboardForEditor:(PTDCodeViewEditor *)editor
+{
+    NSLog(@"Dismissed keyboard for editor: %@", editor);
+}
+
+@end
+```
+
+Included in this workspace's example app is [a view controller](blob/master/ViewController.m) that implements the EventsDelegate.
+
 Object Model
 -------------------------
 The object model for the [Abstract syntax tree](http://en.wikipedia.org/wiki/Abstract_syntax_tree) has at the top most level : comments, strings, and code. Siblings of code include keywords and numbers.  Look at `PTDCodeViewEditorParser` for a deeper dive or check out the image below.

@@ -17,8 +17,16 @@
 @end
 
 @interface PTDRichTextEditorToolbar : RichTextEditorToolbar <UIInputViewAudioFeedback>
+
 @property (nonatomic, weak) id <PTDRichTextEditorToolbarDataSource> dataSource;
 @property (nonatomic, strong) UIColor *separaterViewColor;
+
+/**
+ *  Initializes toolbar buttons from a JSON file with name `resourceName`.
+ *  For example: "myCustomMenu.json" -> resourceName: @"myCustomMenu"
+ */
+- (void)initializeCustomButtonsFromJsonResourceWithName:(NSString *)resourceName error:(NSError **)error;
+
 @end
 
 

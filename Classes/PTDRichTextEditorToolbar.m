@@ -23,6 +23,11 @@
 
 @implementation PTDRichTextEditorToolbar
 
+/**
+ *  Initializes toolbar buttons with the default iPhone and iPad menus, declared in menu~iphone.json and menu~ipad.json.
+ *
+ *  Don't rename this method! It's overriding the RichTextEditorToolbar method of the same name.
+ */
 - (void)initializeButtons
 {
     NSString *filePathName;
@@ -40,17 +45,49 @@
         filePath = [[NSBundle mainBundle] pathForResource:@"menu" ofType:@"json"];
         data = [NSData dataWithContentsOfFile:filePath];
     }
+
     NSError *error;
-    self.menuJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    NSArray *menuJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     if (error)
         NSLog(@"JSONObjectWithData error: %@", error);
+    else
+        [self setButtonArrayFromJson:menuJson];
+}
 
+- (void)initializeCustomButtonsFromJsonResourceWithName:(NSString *)resourceName error:(NSError **)error
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:resourceName ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    if (!data) {
+        NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"No data returned for filePath: %@", filePath]};
+        *error = [NSError errorWithDomain:@"com.ptd.CodeTextEditor" code:-100 userInfo:userInfo];
+        return;
+    }
+
+    NSArray *menuJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:error];
+    NSError *checkableError = *error;  // We have to do this to dereference the error properly. Testing for nil on `error` always returns not-nil.
+    if (checkableError) {
+        return;
+    }
+    [self setButtonArrayFromJson:menuJson];
+}
+
+/**
+ *  Sets toolbar buttons from a set of buttons.
+ *  Buttons are loaded from JSON into an NSArray of PTDRichTextEditorToggleButtons, then passed in.
+ */
+- (void)setButtonArrayFromJson:(NSArray *)menuJson
+{
+    self.menuJson = menuJson;
+    
     self.btnArray = [@[] mutableCopy];
     
     for (NSDictionary *dic in self.menuJson) {
         PTDRichTextEditorToggleButton *btn = [self buttonWithJson:dic];
         [self.btnArray addObject:btn];
     }
+    
+    [self populateToolbar];
 }
 
 - (PTDRichTextEditorToggleButton *)buttonWithJson:(NSDictionary*)json
