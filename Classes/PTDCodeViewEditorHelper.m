@@ -75,7 +75,7 @@
 // returns if the text is surrounded on the left and right
 
 - (BOOL)text:(NSString*)text range:(NSRange)range leftNeighbor:(NSString*)left rightNeighbor:(NSString*)right  {
-    if (text.length < range.location+range.length+1) {
+    if (text.length < range.location+range.length+1 || range.location == NSNotFound || range.location == 0 ) {
         return NO;
     }
     
