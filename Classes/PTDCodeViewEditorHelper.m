@@ -59,13 +59,13 @@
 
 - (NSMutableArray*)segmentsForRange:(NSRange)range fromSegments:(NSMutableArray*)segments {
     NSMutableArray *retArr = nil;
+
+    retArr = [NSMutableArray array];
+    
     for (NSDictionary *segment in segments) {
         NSRange segmentRange = NSMakeRange([segment[@"location"] integerValue], [segment[@"length"] integerValue]);
         NSRange intersectionRange = NSIntersectionRange(range, segmentRange);
         if (intersectionRange.length!= 0 || intersectionRange.location != 0) {
-            if (!retArr) {
-                retArr =  [@[] mutableCopy];
-            }
             [retArr addObject:segment];
         }
     }
