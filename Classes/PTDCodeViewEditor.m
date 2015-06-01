@@ -130,7 +130,7 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     // default values
     self.indentation = @"    ";
     self.syntaxHighlightOn = YES;
-    self.parseDelay = 1;
+    self.parseDelay = 0.5;
     
     // callback called when parsing complete. if there have not been changes to the text since the parse, as determined
     // by the seqNum, then the application of the segments for syntax highlighing is allowed to occur
@@ -395,24 +395,22 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         NSRange newRange = NSMakeRange([newSegment[@"location"] integerValue], [newSegment[@"length"] integerValue]);
         
         NSRange rangeUnion;
-        if ((prevSegmentRange.length>0 || prevSegmentRange.location>0) && (newRange.length>0 || newRange.location>0)) {
+        if ( (prevSegmentRange.length>0 || prevSegmentRange.location>0) && (newRange.length>0 || newRange.location>0) ) {
             rangeUnion = NSUnionRange(prevSegmentRange, newRange);
         }
-        else if (newRange.length>0 || newRange.location>0) {
-            rangeUnion = newRange;
+        else if (newRange.length>0 && newRange.location>0) {
+            rangeUnion = NSUnionRange(prevSegmentRange, newRange);
         }
-        else if (prevSegmentRange.length>0 || prevSegmentRange.location>0) {
-            rangeUnion = prevSegmentRange;
+        else if (prevSegmentRange.length>0 && prevSegmentRange.location>0) {
+            rangeUnion = NSUnionRange(prevSegmentRange, newRange);
         }
         else {
             // ranges to reparse can not be found, safe to reparse entire file
             NSLog(@"reparsing entire file");
-            if (!self.segments) {
-                self.segments = [@[] mutableCopy];
-            }
-            [self.parser parseText:self.text segment:self.segments keywords:self.keywordsDic];
-            self.segments = [[self.segments sortedArrayUsingDescriptors:@[self.helper.sortDesc]] mutableCopy];
-            NSLog(@"reparsing entire file");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf loadWithText:weakSelf.text];
+            });
+            return;
         }
         
         segmentsCopy = [weakSelf.helper segmentsForRange:rangeUnion fromSegments:segmentsCopy];
