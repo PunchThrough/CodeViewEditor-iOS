@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CodeTextEditor"
-  s.version      = "0.2.4"
+  s.version      = "0.2.5"
   s.summary      = "A configurable iOS text editor for sourcecode editing"
   s.homepage     = "https://github.com/mplewis/CodeTextEditor"
   s.dependency     'iOS-Rich-Text-Editor', '~> 0.0.1'
