@@ -42,9 +42,6 @@ typedef enum {
 
 - (void)parseText:(NSString*)text segment:(NSMutableArray*)segments keywords:(NSDictionary*)keywords {
     [segments removeAllObjects];
-    if ( !segments ) {
-        segments = [NSMutableArray array];
-    }
     
     [self parseStringCommentsText:text segments:segments];
     NSMutableArray *otherSegments = [self otherSegmentsFromText:text segments:segments];

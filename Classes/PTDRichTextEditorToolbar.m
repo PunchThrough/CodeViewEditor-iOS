@@ -23,6 +23,10 @@
 
 @implementation PTDRichTextEditorToolbar
 
+// Indicate that we actually intend to override RichTextEditorToolbarDataSource as PTD* without re-synthesizing dataSource
+// http://stackoverflow.com/a/29667762/254187
+@dynamic dataSource;
+
 /**
  *  Initializes toolbar buttons with the default iPhone and iPad menus, declared in menu~iphone.json and menu~ipad.json.
  *

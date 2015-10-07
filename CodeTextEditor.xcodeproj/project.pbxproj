@@ -637,17 +637,7 @@
 				GCC_PREFIX_HEADER = "CodeTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "CodeTextEditorTests/CodeTextEditorTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"Pods-CodeTextEditor-WEPopover\"",
-					"-l\"Pods-CodeTextEditor-iOS-Rich-Text-Editor\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"UIKit\"",
-					"-framework",
-					XCTest,
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = CodeTextEditorTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeTextEditor.app/CodeTextEditor";
 			};
@@ -668,17 +658,7 @@
 				GCC_PREFIX_HEADER = "CodeTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "CodeTextEditorTests/CodeTextEditorTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"Pods-CodeTextEditor-WEPopover\"",
-					"-l\"Pods-CodeTextEditor-iOS-Rich-Text-Editor\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"UIKit\"",
-					"-framework",
-					XCTest,
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = CodeTextEditorTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeTextEditor.app/CodeTextEditor";
 			};

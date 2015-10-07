@@ -20,6 +20,8 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
 @property (nonatomic, strong) PTDCodeViewEditorHelper *helper;
 @property (nonatomic, strong) PTDCodeViewEditorParser *parser;
 @property (nonatomic, strong) NSMutableArray *segments;
+@property (nonatomic) NSRange unhighlightedTextRange;
+@property (nonatomic) NSInteger unsuccessfulHighlightAttempts;
 @property (nonatomic, strong) NSMutableDictionary *textReplaceDic;
 @property (nonatomic, strong) NSMutableDictionary *keywordsDic;
 @property (nonatomic, strong) NSMutableDictionary *colorsDic;
@@ -124,16 +126,17 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     
     self.segments = [@[] mutableCopy];
     self.lines = [@[] mutableCopy];
-    
+    self.unhighlightedTextRange = NSMakeRange(0, 0);
+
     [self observeKeyboard];
-    
+
     // default values
     self.indentation = @"    ";
     self.syntaxHighlightOn = YES;
-    self.parseDelay = 0.5;
-    
+    self.parseDelay = .5;
+
     // callback called when parsing complete. if there have not been changes to the text since the parse, as determined
-    // by the seqNum, then the application of the segments for syntax highlighing is allowed to occur
+    // by the seqNum, then the application of the segments for syntax highlighting is allowed to occur
     __weak PTDCodeViewEditor *weakSelf = self;
     self.parseCompletionHandler = ^(long seqNum, NSMutableArray *segments, NSRange range) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, weakSelf.parseDelay * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -157,6 +160,9 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
                 }
             }
             else {
+                weakSelf.unhighlightedTextRange = NSUnionRange(weakSelf.unhighlightedTextRange, range);
+                weakSelf.unsuccessfulHighlightAttempts++;
+
                 NSLog(@"results thrown away");
             }
         });
@@ -307,7 +313,7 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardFrame = [kbFrame CGRectValue];
  
-    BOOL isPortrait = UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
+    BOOL isPortrait = UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
     BOOL isOS8OrLater = [[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"];
     CGFloat height;
     
@@ -382,9 +388,9 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         // saves the seq number for later comparison
         long backgroundCharTypedSeqNum = weakSelf.charTypedSeqNum;
-        NSMutableArray *segmentsCopy = [weakSelf.segments mutableCopy];
+        NSMutableArray *segmentsCopy = weakSelf.segments ? [weakSelf.segments mutableCopy] : [NSMutableArray new];
         NSString *textCopy = [weakSelf.text copy];
-        NSRange selectedRangeCopy = selectedRange;
+        NSRange unhighlightedTextRange = weakSelf.unhighlightedTextRange;
 
         // parses the entire file
         [weakSelf.parser parseText:textCopy segment:segmentsCopy keywords:weakSelf.keywordsDic];
@@ -394,27 +400,28 @@ typedef void (^ParsingCompletion)(long seqNum, NSMutableArray *segments, NSRange
         NSDictionary *newSegment = [weakSelf.helper segmentForRange:range fromSegments:segmentsCopy];
         NSRange newRange = NSMakeRange([newSegment[@"location"] integerValue], [newSegment[@"length"] integerValue]);
         
-        NSRange rangeUnion;
-        if ( (prevSegmentRange.length>0 || prevSegmentRange.location>0) && (newRange.length>0 || newRange.location>0) ) {
-            rangeUnion = NSUnionRange(prevSegmentRange, newRange);
+        NSRange rangeUnion = NSMakeRange(0, 0);
+
+        if (prevSegmentRange.length>0 || prevSegmentRange.location>0) {
+            rangeUnion = prevSegmentRange;
         }
-        else if (newRange.length>0 && newRange.location>0) {
-            rangeUnion = NSUnionRange(prevSegmentRange, newRange);
+        if (newRange.length>0 || newRange.location>0) {
+            rangeUnion = (rangeUnion.length>0 || rangeUnion.location>0) ? NSUnionRange(rangeUnion, newRange) : newRange;
         }
-        else if (prevSegmentRange.length>0 && prevSegmentRange.location>0) {
-            rangeUnion = NSUnionRange(prevSegmentRange, newRange);
+        if (selectedRange.length>0 || selectedRange.location>0) {
+            rangeUnion = (rangeUnion.length>0 || rangeUnion.location>0) ? NSUnionRange(rangeUnion, selectedRange) : selectedRange;
         }
-        else {
-            // ranges to reparse can not be found, safe to reparse entire file
-            NSLog(@"reparsing entire file");
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf loadWithText:weakSelf.text];
-            });
-            return;
+
+        if (unhighlightedTextRange.length>0 || unhighlightedTextRange.location>0) {
+            rangeUnion = NSUnionRange(rangeUnion, unhighlightedTextRange);
+             weakSelf.unsuccessfulHighlightAttempts--;
+            if (!weakSelf.unsuccessfulHighlightAttempts) {
+                weakSelf.unhighlightedTextRange = NSMakeRange(0, 0);
+            }
         }
-        
+
         segmentsCopy = [weakSelf.helper segmentsForRange:rangeUnion fromSegments:segmentsCopy];
-        weakSelf.parseCompletionHandler(backgroundCharTypedSeqNum, segmentsCopy, selectedRangeCopy);
+        weakSelf.parseCompletionHandler(backgroundCharTypedSeqNum, segmentsCopy, rangeUnion);
     });
 }
 

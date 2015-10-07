@@ -27,8 +27,8 @@
     NSUInteger min = NSUIntegerMax;
     NSMutableDictionary *foundSegment;
     for (NSMutableDictionary *segment in segments) {
-        int location = [segment[@"location"] integerValue];
-        int diff = abs(location - (int)range.location);
+        long location = [segment[@"location"] integerValue];
+        long diff = labs(location - (int)range.location);
         if ((location <= range.location) && (diff <= min)) {
             min = diff;
             foundSegment = segment;
@@ -59,13 +59,13 @@
 
 - (NSMutableArray*)segmentsForRange:(NSRange)range fromSegments:(NSMutableArray*)segments {
     NSMutableArray *retArr = nil;
-
-    retArr = [NSMutableArray array];
-    
     for (NSDictionary *segment in segments) {
         NSRange segmentRange = NSMakeRange([segment[@"location"] integerValue], [segment[@"length"] integerValue]);
         NSRange intersectionRange = NSIntersectionRange(range, segmentRange);
         if (intersectionRange.length!= 0 || intersectionRange.location != 0) {
+            if (!retArr) {
+                retArr =  [@[] mutableCopy];
+            }
             [retArr addObject:segment];
         }
     }
@@ -75,7 +75,7 @@
 // returns if the text is surrounded on the left and right
 
 - (BOOL)text:(NSString*)text range:(NSRange)range leftNeighbor:(NSString*)left rightNeighbor:(NSString*)right  {
-    if (text.length < range.location+range.length+1 || range.location == NSNotFound || range.location == 0 ) {
+    if (text.length < range.location+range.length+1 || !range.location) {
         return NO;
     }
     
@@ -112,7 +112,7 @@ static NSMutableDictionary *occuranceRegexDic;
     
     NSRegularExpression *regex = occuranceRegexDic[pattern];
     if (!regex) {
-        regex = [NSRegularExpression regularExpressionWithPattern:pattern options:nil error:&error];
+        regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
         if (error) {
             NSLog(@"Couldn't create regex with given string and options %@", [error localizedDescription]);
         }
@@ -143,7 +143,7 @@ static NSRegularExpression *numberRegex;
     }
     if (!numberRegex) {
         NSError *error=NULL;
-        numberRegex = [NSRegularExpression regularExpressionWithPattern:@"\\d(x|b)?[0-9a-fA-F]*" options:nil error:&error];
+        numberRegex = [NSRegularExpression regularExpressionWithPattern:@"\\d(x|b)?[0-9a-fA-F]*" options:0 error:&error];
         if (error) {
             NSLog(@"Couldn't create regex with given string and options %@", [error localizedDescription]);
         }
@@ -158,7 +158,11 @@ static NSRegularExpression *numberRegex;
 // returns a dic based on the arduino keywords file format
 
 - (NSMutableDictionary*)keywordsForPath:(NSString*)filePath {
-    NSString *myText = [NSString stringWithContentsOfFile:filePath encoding:NSStringEncodingConversionAllowLossy error:nil];
+    NSError *error;
+    NSString *myText = [NSString stringWithContentsOfFile:filePath encoding:NSStringEncodingConversionAllowLossy error:&error];
+    if (error) {
+        NSLog(@"Error getting contents of file: %@: %@", filePath, error);
+    }
     NSArray *arr = [myText componentsSeparatedByString:@"\n"];
     NSMutableDictionary *keywordsDic = [@{} mutableCopy];
     for (NSString *line in arr) {
